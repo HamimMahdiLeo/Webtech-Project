@@ -1,6 +1,5 @@
-let cartCount = 1;
-let cartTotal = 1240;
-let toastTimer = null;
+let cartCount = 0;
+let cartTotal = 0;
 
 function formatBDT(amount) {
   return "৳" + amount.toLocaleString("en-IN");
@@ -11,33 +10,22 @@ function updateCartUI() {
   document.getElementById("cartCount").innerHTML = cartCount;
 }
 
-function showToast(message) {
-  const toast = document.getElementById("toast");
-  toast.innerHTML = message;
-  toast.classList.add("show");
-
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(function () {
-    toast.classList.remove("show");
-  }, 2400);
-}
-
 function filterJerseys() {
   const query = document.getElementById("searchInput").value.trim().toLowerCase();
   const cards = document.querySelectorAll(".product-card");
   let visibleCount = 0;
 
-  cards.forEach(function (card) {
-    const name = card.getAttribute("data-name").toLowerCase();
-    const edition = card.getAttribute("data-edition").toLowerCase();
+  for (let i = 0; i < cards.length; i++) {
+    const title = cards[i].querySelector(".product-title").innerHTML.toLowerCase();
+    const edition = cards[i].querySelector(".edition-tag").innerHTML.toLowerCase();
 
-    if (name.indexOf(query) !== -1 || edition.indexOf(query) !== -1) {
-      card.classList.remove("hidden");
+    if (title.indexOf(query) !== -1 || edition.indexOf(query) !== -1) {
+      cards[i].classList.remove("hidden");
       visibleCount++;
     } else {
-      card.classList.add("hidden");
+      cards[i].classList.add("hidden");
     }
-  });
+  }
 
   const emptyState = document.getElementById("emptyState");
   if (visibleCount === 0) {
@@ -47,52 +35,39 @@ function filterJerseys() {
   }
 }
 
-// Handle Size Selection and Add to Cart clicks on HTML cards
-document.getElementById("catalog").addEventListener("click", function (event) {
-  const target = event.target;
-
-  if (target.classList.contains("size-btn")) {
-    const wrapper = target.parentElement;
-    const buttons = wrapper.querySelectorAll(".size-btn");
-
-    buttons.forEach(function (btn) {
-      btn.classList.remove("selected");
-    });
-    target.classList.add("selected");
-    return;
-  }
-
-  if (target.classList.contains("add-to-cart-btn")) {
-    const card = target.closest(".product-card");
-    const productName = card.getAttribute("data-name");
-    const productPrice = Number(card.getAttribute("data-price"));
-    const selectedSizeBtn = card.querySelector(".size-btn.selected");
-    let chosenSize = "M";
-
-    if (selectedSizeBtn !== null) {
-      chosenSize = selectedSizeBtn.getAttribute("data-size");
+// Handle Size Selection
+const sizeButtons = document.querySelectorAll(".size-btn");
+for (let i = 0; i < sizeButtons.length; i++) {
+  sizeButtons[i].addEventListener("click", function () {
+    const rowButtons = this.parentElement.querySelectorAll(".size-btn");
+    for (let j = 0; j < rowButtons.length; j++) {
+      rowButtons[j].classList.remove("selected");
     }
+    this.classList.add("selected");
+  });
+}
 
+// Handle Add to Cart clicks
+const addButtons = document.querySelectorAll(".add-to-cart-btn");
+const allCards = document.querySelectorAll(".product-card");
+
+for (let i = 0; i < addButtons.length; i++) {
+  addButtons[i].addEventListener("click", function () {
+    let price = Number(allCards[i].getAttribute("data-price"));
     cartCount = cartCount + 1;
-    cartTotal = cartTotal + productPrice;
+    cartTotal = cartTotal + price;
     updateCartUI();
-    showToast("Added " + productName + " (Size " + chosenSize + ") to cart");
-  }
-});
+  });
+}
 
-// Reset search when clicking All Jerseys button
+// Reset search on All Jerseys click
 document.getElementById("allJerseysBtn").addEventListener("click", function () {
   document.getElementById("searchInput").value = "";
   filterJerseys();
 });
 
-// Handle Live Search Input
+// Live search
 document.getElementById("searchInput").addEventListener("keyup", filterJerseys);
-
-// Handle Cart Button Click
-document.getElementById("cartBtn").addEventListener("click", function () {
-  showToast("Cart: " + cartCount + " item(s) • Total " + formatBDT(cartTotal));
-});
 
 // Initialize Cart Display
 updateCartUI();
