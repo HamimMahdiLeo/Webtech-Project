@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>     <meta charset="UTF-8">     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Delivery Man Sign Up</title>
+
+<!-- Connect CSS -->
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+
+<body>
+
+<form id="deliveryForm">
+
+
+<!-- HEADER -->
+
+<div class="logo">
+    + THREADED STORIES
+    <small>WEAR YOUR PASSION</small>
+</div>
+
+<p class="section-title">ON THE MOVE</p>
+
+<h2>Delivery Man Sign Up</h2>
+
+<p class="subtitle">
+    Bring the game to their doorstep.
+    Join our delivery team in Dhaka.
+</p>
+
+
+<!-- PERSONAL DETAILS -->
+
+<p class="section-title">PERSONAL DETAILS</p>
+
+<div>
+    <label>Full Name</label>
+    <input type="text" id="fullName" placeholder="Enter your full name">
+    <span id="nameError"></span>
+</div>
+
+<div>
+    <label>Phone Number</label>
+    <input type="text" id="phone" placeholder="01XXXXXXXXX">
+    <span id="phoneError"></span>
+</div>
+
+<div>
+    <label>Gender</label>
+
+    <select id="gender">
+        <option value="">Select gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+    </select>
+
+    <span id="genderError"></span>
+</div>
+
+<div>
+    <label>Email</label>
+    <input type="email" id="email" placeholder="name@example.com">
+    <span id="emailError"></span>
+</div>
+
+
+<!-- IDENTITY AND LOCATION -->
+
+<p class="section-title">IDENTITY & LOCATION</p>
+
+<div>
+    <label>Present Address</label>
+
+    <textarea id="address"
+    placeholder="House, road, area, city & postcode"></textarea>
+
+    <span id="addressError"></span>
+</div>
+
+<div>
+    <label>NID Number</label>
+    <input type="text" id="nid" placeholder="Enter your NID number">
+    <span id="nidError"></span>
+</div>
+
+<div>
+    <label>Blood Group</label>
+
+    <select id="blood">
+        <option value="">Select blood group</option>
+        <option>O+</option>
+        <option>O-</option>
+        <option>A+</option>
+        <option>A-</option>
+        <option>B+</option>
+        <option>B-</option>
+        <option>AB+</option>
+        <option>AB-</option>
+    </select>
+
+    <span id="bloodError"></span>
+</div>
+
+<div>
+    <label>Operating Area</label>
+
+    <select id="area">
+        <option value="">Select operating area</option>
+        <option>Bashundhara & Uttara</option>
+        <option>Mirpur</option>
+        <option>Dhanmondi</option>
+        <option>Banani & Gulshan</option>
+        <option>Mohammadpur</option>
+        <option>Motijheel</option>
+    </select>
+
+    <span id="areaError"></span>
+</div>
+
+
+<!-- VEHICLE DETAILS -->
+
+<p class="section-title">VEHICLE DETAILS</p>
+
+<div>
+    <label>Vehicle Type</label>
+
+    <select id="vehicle">
+        <option value="">Select vehicle</option>
+        <option value="Cycle">Cycle</option>
+        <option value="Bike">Bike</option>
+    </select>
+
+    <span id="vehicleError"></span>
+</div>
+
+<p class="hint">Available options: Cycle / Bike</p>
+
+<!-- Bike Registration -->
+
+<div id="bikeDetails" style="display:none;">
+
+    <p class="success-text">✓ Required for Bike</p>
+
+    <label>Bike Registration Number</label>
+
+    <input type="text" id="bikeNumber"
+    placeholder="DHK-METRO-LA-24-8891">
+
+    <span id="bikeError"></span>
+
+</div>
+
+
+<!-- SECURITY -->
+
+<p class="section-title">SECURITY</p>
+
+<div>
+    <label>Password</label>
+
+    <div class="password-box">
+
+        <input type="password" id="password"
+        placeholder="Enter password">
+
+        <span class="toggle"
+        onclick="togglePassword('password', this)">👁</span>
+
+    </div>
+
+    <p class="hint">Use at least 8 characters.</p>
+
+    <span id="passwordError"></span>
+</div>
+
+<div>
+    <label>Confirm Password</label>
+
+    <div class="password-box">
+
+        <input type="password" id="confirmPassword"
+        placeholder="Confirm password">
+
+        <span class="toggle"
+        onclick="togglePassword('confirmPassword', this)">👁</span>
+
+    </div>
+
+    <span id="confirmError"></span>
+</div>
+
+
+<!-- TERMS -->
+
+<p class="terms">
+    By signing up, you agree to our
+    <a href="#">Terms of Service</a>
+    and <a href="#">Privacy Policy</a>.
+</p>
+
+
+<!-- SUBMIT -->
+
+<button type="submit">
+    SIGN UP AS DELIVERY MAN →
+</button>
+
+<p id="successMessage"></p>
+
+<p class="login">
+    Already part of the club? <a href="#">Log in</a>
+</p>
+
+
+</form>
+
+<!-- Connect JavaScript -->
+
+<script src="script.js">\</script>
+
+</body>
+</html>
