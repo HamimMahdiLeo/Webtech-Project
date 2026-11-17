@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threaded Stories — All Jerseys</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Top Promo Announcement Bar -->
+  <div class="top-promo-bar">
+    <div class="container promo-inner">
+      <div class="promo-left">
+        <span>&#128293; <strong>ALL JERSEYS</strong> — Free Delivery across Dhaka</span>
+      </div>
+      <div class="promo-right">
+        <span class="flag-badge">BD</span>
+        <span>Currency: <strong>BDT (&#2547;)</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header & Navigation -->
+  <header class="site-header">
+    <div class="container header-top">
+      <a href="#" class="brand">
+        <div class="brand-logo">&#128085;</div>
+        <span class="brand-name">THREADED STORIES</span>
+      </a>
+
+      <div class="search-wrapper">
+        <span class="search-icon">&#128269;</span>
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search 2026/27 clubs, national teams &amp; retro kits..."
+          autocomplete="off"
+        >
+      </div>
+
+      <button type="button" class="cart-pill" id="cartBtn">
+        Cart &bull; <span id="cartTotal">&#2547;1,240</span> (<span id="cartCount">1</span>)
+      </button>
+    </div>
+
+    <nav class="container header-nav">
+      <button type="button" class="nav-pill active" id="allJerseysBtn">&#128293; All Jerseys</button>
+      <a href="#custom-studio" class="nav-pill secondary">&#10024; Custom Print Studio</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container main-content">
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+      <span class="hero-badge">2026/27 NEW SEASON DROP</span>
+      <h1>ALL TRENDING JERSEYS IN BANGLADESH</h1>
+      <p>Authentic Player Edition &amp; Fan Version kits &bull; Custom Name &amp; Number (+&#2547;250) &bull; Fast COD</p>
+      <a href="#catalog" class="btn-primary hero-cta">Explore Catalog &rarr;</a>
+    </section>
+
+    <!-- Unified Jersey Catalog Grid -->
+    <div id="catalog" class="product-grid"></div>
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
