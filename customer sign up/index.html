@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threaded Stories - Customer Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="signup-container">
+
+     
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="1.8">
+                        <path d="M8 4L4 6L2.5 11L6 13L8 10V21H16V10L18 13L21.5 11L20 6L16 4C15 5.5 13.7 6 12 6S9 5.5 8 4Z"/>
+                    </svg>
+                </div>
+
+                <div class="brand-text">
+                    <h3>THREADED STORIES</h3>
+                    <span>WEAR YOUR PASSION</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="divider"></div>
+
+       
+        <section class="intro">
+            <span class="section-label">JOIN THE CLUB</span>
+            <h1>Customer Sign Up</h1>
+            <p>
+                Find your colours. Wear your story. Create an
+                account for your next jersey.
+            </p>
+        </section>
+
+        <form id="signupForm">
+
+            <div class="form-section">
+                <span class="section-label">PERSONAL DETAILS</span>
+
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName"
+                           placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone"
+                           placeholder="01XXXXXXXXX" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender" required>
+                        <option value="" disabled selected>
+                            Select gender
+                        </option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                        <option value="Prefer not to say">
+                            Prefer not to say
+                        </option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email"
+                           placeholder="name@example.com" required>
+                </div>
+            </div>
+
+          
+            <div class="form-section">
+                <span class="section-label">DELIVERY DETAILS</span>
+
+                <div class="form-group">
+                    <label for="address">Full Delivery Address</label>
+                    <textarea id="address"
+                        placeholder="House, road, area, city & postcode"
+                        required></textarea>
+                </div>
+            </div>
+
+       
+            <div class="form-section">
+                <span class="section-label">SECURITY</span>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+
+                    <div class="password-wrapper">
+                        <input type="password" id="password"
+                               placeholder="••••••••••••" required>
+
+                        <button type="button" class="toggle-password"
+                                data-target="password"
+                                aria-label="Show password">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="1.8">
+                                <path d="M2 12S5.5 5 12 5s10 7 10 7-3.5 7-10 7S2 12 2 12Z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <small>Use at least 8 characters.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+
+                    <div class="password-wrapper">
+                        <input type="password" id="confirmPassword"
+                               placeholder="••••••••••••" required>
+
+                        <button type="button" class="toggle-password"
+                                data-target="confirmPassword"
+                                aria-label="Show password">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="1.8">
+                                <path d="M2 12S5.5 5 12 5s10 7 10 7-3.5 7-10 7S2 12 2 12Z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+          
+            <p class="terms">
+                By signing up, you agree to our
+                <a href="#">Terms of Service</a> and
+                <a href="#">Privacy Policy</a>.
+            </p>
+
+         
+            <button type="submit" class="signup-btn">
+                SIGN UP AS CUSTOMER
+                <span>→</span>
+            </button>
+
+            <div id="message" class="message"></div>
+
+            <p class="login-text">
+                Already part of the club?
+                <a href="login.html">Log in</a>
+            </p>
+
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
