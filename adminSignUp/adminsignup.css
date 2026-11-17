@@ -1,0 +1,244 @@
+
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #090e1d;
+    color: #f1f2f7;
+    display: flex;
+    justify-content: center;
+    padding: 20px 12px;
+}
+
+/* Main Container */
+.signup-container {
+    width: 100%;
+    max-width: 500px;
+    background: #151a2e;
+    border: 1px solid #292f48;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 28px;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    background: #101628;
+    border: 1px solid #30364b;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.brand h3 {
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.brand p {
+    font-size: 11px;
+    color: #9299ad;
+    letter-spacing: 3px;
+    margin-top: 5px;
+}
+
+/* Divider */
+hr {
+    border: none;
+    border-top: 1px solid #292f48;
+    margin-bottom: 32px;
+}
+
+/* Intro */
+.small-title,
+.section-title {
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #a3abc0;
+}
+
+.intro h1 {
+    font-size: 32px;
+    margin: 14px 0;
+}
+
+.description {
+    color: #a7aec1;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+/* Section Titles */
+.section-title {
+    margin-bottom: 22px;
+}
+
+.security-title {
+    margin-top: 32px;
+}
+
+/* Labels */
+label {
+    display: block;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+/* Input and Select */
+input,
+select {
+    width: 100%;
+    height: 57px;
+    background: #101627;
+    border: 1px solid #2a3047;
+    border-radius: 10px;
+    padding: 0 16px;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 22px;
+    outline: none;
+}
+
+input::placeholder {
+    color: #747e94;
+}
+
+input:focus,
+select:focus {
+    border-color: #10b981;
+}
+
+select {
+    color: #a7aec1;
+    cursor: pointer;
+}
+
+select option {
+    background: #151a2e;
+    color: white;
+}
+
+/* Password */
+.password-box {
+    position: relative;
+}
+
+.password-box input {
+    padding-right: 55px;
+}
+
+.password-box button {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    background: transparent;
+    border: none;
+    color: #a7aec1;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Password Hint */
+.hint {
+    font-size: 13px;
+    color: #969eb2;
+    margin-top: -12px;
+    margin-bottom: 24px;
+}
+
+/* Terms */
+.terms {
+    color: #a7aec1;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 12px 0 22px;
+}
+
+.terms a {
+    color: #a7aec1;
+    text-decoration: none;
+}
+
+/* Signup Button */
+.signup-btn {
+    width: 100%;
+    height: 62px;
+    background: #10b981;
+    border: none;
+    border-radius: 10px;
+    color: #062b24;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.signup-btn span {
+    font-size: 23px;
+}
+
+.signup-btn:hover {
+    background: #0da875;
+}
+
+/* Login Link */
+.login-link {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 14px;
+    color: #a7aec1;
+}
+
+.login-link a {
+    color: #a7aec1;
+    text-decoration: none;
+    margin-left: 4px;
+}
+
+.login-link a:hover,
+.terms a:hover {
+    color: #10b981;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+
+    .signup-container {
+        padding: 25px 20px;
+    }
+
+    .intro h1 {
+        font-size: 28px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    input,
+    select {
+        font-size: 14px;
+    }
+}

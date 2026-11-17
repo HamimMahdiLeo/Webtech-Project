@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Sign Up - Threaded Stories</title>
+
+    <link rel="stylesheet" href="adminsignup.css">
+    <script src="adminsignup.js" defer></script>
+</head>
+
+<body>
+
+    <div class="signup-container">
+
+        <!-- Logo Section -->
+        <header class="header">
+
+            <div class="logo">T</div>
+
+            <div class="brand">
+                <h3>THREADED STORIES</h3>
+                <p>WEAR YOUR PASSION</p>
+            </div>
+
+        </header>
+
+        <hr>
+
+        <!-- Title Section -->
+        <section class="intro">
+
+            <p class="small-title">TEAM ACCESS</p>
+
+            <h1>Admin Sign Up</h1>
+
+            <p class="description">
+                Behind every great match-day order is a great team.
+                Join the workspace.
+            </p>
+
+        </section>
+
+        <!-- Signup Form -->
+        <form id="signupForm">
+
+            <!-- Personal Details -->
+            <p class="section-title">PERSONAL DETAILS</p>
+
+            <label for="name">Full Name</label>
+            <input type="text" id="name"
+                placeholder="Enter your full name" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone"
+                placeholder="01XXXXXXXXX" required>
+
+            <label for="gender">Gender</label>
+
+            <select id="gender" required>
+                <option value="">Select gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="email">Email</label>
+            <input type="email" id="email"
+                placeholder="name@example.com" required>
+
+
+            <!-- Security Section -->
+            <p class="section-title security-title">SECURITY</p>
+
+            <label for="password">Password</label>
+
+            <div class="password-box">
+
+                <input type="password" id="password"
+                    placeholder="Enter password" required>
+
+                <button type="button"
+                    onclick="togglePassword('password', this)">
+                    👁
+                </button>
+
+            </div>
+
+            <p class="hint">Use at least 8 characters.</p>
+
+
+            <label for="confirmPassword">Confirm Password</label>
+
+            <div class="password-box">
+
+                <input type="password" id="confirmPassword"
+                    placeholder="Confirm password" required>
+
+                <button type="button"
+                    onclick="togglePassword('confirmPassword', this)">
+                    👁
+                </button>
+
+            </div>
+
+
+            <!-- Terms -->
+            <p class="terms">
+                By signing up, you agree to our
+                <a href="#">Terms of Service</a> and
+                <a href="#">Privacy Policy</a>.
+            </p>
+
+
+            <!-- Signup Button -->
+            <button type="submit" class="signup-btn">
+                SIGN UP AS ADMIN <span>→</span>
+            </button>
+
+        </form>
+
+        <!-- Login Link -->
+        <div class="login-link">
+            Already part of the club?
+            <a href="#">Log in</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
