@@ -1,0 +1,246 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #09111f;
+    color: white;
+}
+
+/* Top Bar */
+.top-bar {
+    background: #25354d;
+    padding: 12px 4%;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Header */
+header {
+    background: #151e2e;
+    padding: 15px 4%;
+    border-bottom: 1px solid #354155;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    background: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.logo h2 {
+    font-size: 18px;
+}
+
+/* Navigation */
+nav {
+    background: #151e2e;
+    padding: 12px 4%;
+    display: flex;
+    gap: 12px;
+    border-bottom: 1px solid #354155;
+}
+
+button {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+nav button {
+    padding: 12px 22px;
+    border-radius: 9px;
+    border: 1px solid #39475d;
+    color: white;
+    background: #202d42;
+}
+
+nav .studio {
+    background: #e91e4d;
+    border: none;
+}
+
+/* Main */
+main {
+    display: flex;
+    justify-content: center;
+    padding: 30px 15px 80px;
+}
+
+/* Checkout Box */
+.checkout-container {
+    width: 475px;
+    min-height: 700px;
+    background: #151e2e;
+    border: 1px solid #44536b;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+.checkout-header {
+    background: #25354d;
+    padding: 23px 27px;
+}
+
+.checkout-header h3 {
+    font-size: 17px;
+}
+
+.checkout-content {
+    padding: 18px 25px;
+}
+
+/* Progress */
+.delivery-progress {
+    background: #103a32;
+    border: 1px solid #17634e;
+    border-radius: 11px;
+    padding: 13px 16px;
+    margin-bottom: 22px;
+    color: #7ce3ba;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.progress-bar {
+    background: #245c4d;
+    height: 7px;
+    border-radius: 10px;
+    margin-top: 8px;
+}
+
+.progress-fill {
+    background: #0ba578;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Headings */
+h4 {
+    font-size: 13px;
+    margin: 20px 0 10px;
+}
+
+/* Input */
+input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 10px;
+    border: 1px solid #394961;
+    border-radius: 10px;
+    background: #202d42;
+    color: white;
+    font-size: 12px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #16a878;
+}
+
+input::placeholder {
+    color: #bdc6d4;
+}
+
+/* Delivery Buttons */
+.delivery-options {
+    display: flex;
+    gap: 12px;
+}
+
+.zone-btn {
+    width: 50%;
+    padding: 14px 5px;
+    background: #202d42;
+    border: 1px solid #394961;
+    border-radius: 10px;
+    color: white;
+    font-size: 11px;
+}
+
+.zone-btn.active {
+    background: #293b56;
+    border-color: #293b56;
+}
+
+/* Payment Buttons */
+.payment-options {
+    display: flex;
+    gap: 10px;
+}
+
+.payment-btn {
+    flex: 1;
+    padding: 14px 5px;
+    background: #202d42;
+    border: 1px solid #394961;
+    border-radius: 9px;
+    color: white;
+    font-size: 12px;
+}
+
+.payment-btn.active {
+    background: #293b56;
+    border-color: #293b56;
+}
+
+.payment-btn.bkash {
+    border-color: #c52c75;
+    color: #f18bbd;
+}
+
+.payment-btn.nagad {
+    border-color: #e07832;
+    color: #f4b47c;
+}
+
+/* Confirm Button */
+.confirm-btn {
+    width: 100%;
+    padding: 19px;
+    margin-top: 30px;
+    background: #16a34a;
+    color: white;
+    border: none;
+    border-radius: 11px;
+    font-size: 14px;
+}
+
+.confirm-btn:hover {
+    background: #12853e;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .checkout-container {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .checkout-content {
+        padding: 18px;
+    }
+
+    .checkout-header h3 {
+        font-size: 15px;
+    }
+
+    .logo h2 {
+        font-size: 16px;
+    }
+}

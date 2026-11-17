@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threaded Stories Checkout</title>
+    <link rel="stylesheet" href="express.css">
+</head>
+<body>
+
+    <div class="top-bar">
+         EXPRESS BANGLADESH CHECKOUT (COD / BKASH / Nagad)
+    </div>
+
+    <header>
+        <div class="logo">
+            <div class="logo-icon">TS</div>
+            <h2>THREADED STORIES</h2>
+        </div>
+    </header>
+
+    <nav>
+        <button>🔥 All Jerseys</button>
+        <button class="studio">✨ Custom Print Studio</button>
+    </nav>
+
+    <main>
+        <div class="checkout-container">
+
+            <div class="checkout-header">
+                <h3>EXPRESS BANGLADESH CHECKOUT</h3>
+            </div>
+
+            <div class="checkout-content">
+
+                <div class="delivery-progress">
+                    🎉 Welcome! Please complete your order details.
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <form id="checkoutForm">
+
+                    <h4>Customer Delivery Details:</h4>
+
+                    <input type="text" id="name"
+                        placeholder="👤 Full Name" required>
+
+                    <input type="tel" id="mobile"
+                        placeholder="📞 Mobile Number" required>
+
+                    <input type="text" id="address"
+                        placeholder="📍 Full Address" required>
+
+                    <h4>Select Delivery Zone:</h4>
+
+                    <div class="delivery-options">
+
+                        <button type="button" class="zone-btn active"
+                            onclick="selectZone(this)">
+                            Inside Dhaka
+                        </button>
+
+                        <button type="button" class="zone-btn"
+                            onclick="selectZone(this)">
+                            Outside Dhaka
+                        </button>
+
+                    </div>
+
+                    <h4>Payment Method:</h4>
+
+                    <div class="payment-options">
+
+                        <button type="button"
+                            class="payment-btn active"
+                            onclick="selectPayment(this)">
+                            💵 Cash COD
+                        </button>
+
+                        <button type="button"
+                            class="payment-btn bkash"
+                            onclick="selectPayment(this)">
+                            bKash
+                        </button>
+
+                        <button type="button"
+                            class="payment-btn nagad"
+                            onclick="selectPayment(this)">
+                            Nagad
+                        </button>
+
+                    </div>
+
+                    <button type="submit" class="confirm-btn">
+                        ✔ CONFIRM ORDER
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="express.js"></script>
+
+</body>
+</html>
