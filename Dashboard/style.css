@@ -38,6 +38,10 @@ img {
   max-width: 100%;
 }
 
+.hidden {
+  display: none;
+}
+
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -247,7 +251,6 @@ img {
 .hero-banner p {
   color: var(--text-secondary);
   font-size: 14px;
-  margin-bottom: 22px;
 }
 
 .btn-primary {
@@ -283,6 +286,10 @@ img {
   display: flex;
   flex-direction: column;
   transition: transform 0.2s, border-color 0.2s;
+}
+
+.product-card.hidden {
+  display: none;
 }
 
 .product-card:hover {
@@ -359,16 +366,6 @@ img {
   font-size: 16px;
   font-weight: bold;
   color: var(--accent-crimson);
-}
-
-.cod-pill {
-  background-color: rgba(225, 29, 72, 0.18);
-  color: #fb7185;
-  border: 1px solid rgba(225, 29, 72, 0.4);
-  font-size: 10px;
-  font-weight: bold;
-  padding: 2px 8px;
-  border-radius: 20px;
 }
 
 .size-selector {
