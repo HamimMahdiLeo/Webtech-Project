@@ -1,12 +1,6 @@
 let cartCount = 0;
-let cartTotal = 0;
-
-function formatBDT(amount) {
-  return "৳" + amount.toLocaleString("en-IN");
-}
 
 function updateCartUI() {
-  document.getElementById("cartTotal").innerHTML = formatBDT(cartTotal);
   document.getElementById("cartCount").innerHTML = cartCount;
 }
 
@@ -49,13 +43,10 @@ for (let i = 0; i < sizeButtons.length; i++) {
 
 // Handle Add to Cart clicks
 const addButtons = document.querySelectorAll(".add-to-cart-btn");
-const allCards = document.querySelectorAll(".product-card");
 
 for (let i = 0; i < addButtons.length; i++) {
   addButtons[i].addEventListener("click", function () {
-    let price = Number(allCards[i].getAttribute("data-price"));
     cartCount = cartCount + 1;
-    cartTotal = cartTotal + price;
     updateCartUI();
   });
 }
