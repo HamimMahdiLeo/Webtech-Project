@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rider Information Form</title>
+
+    <link rel="stylesheet" href="rider.css">
+    <script src="rider.js" defer></script>
+</head>
+<body>
+
+    <div class="form-container">
+
+        <!-- Header -->
+        <header>
+            <div class="logo">◇</div>
+
+            <div class="brand">
+                <h3>THREADED STORIES</h3>
+                <p>WEAR YOUR PASSION</p>
+            </div>
+        </header>
+
+        <hr>
+
+        <!-- Form Heading -->
+        <div class="heading">
+            <p class="subtitle">RIDER INFORMATION</p>
+            <h1>Rider Details</h1>
+            <p class="description">
+                Please provide your personal, vehicle and payout information.
+            </p>
+        </div>
+
+        <form id="riderForm">
+
+            <!-- Personal Details -->
+            <p class="section-title">PERSONAL DETAILS</p>
+
+            <label for="name">Full Name</label>
+            <input type="text" id="name"
+                placeholder="Enter your full name" required>
+
+            <label for="phone">Mobile Number</label>
+            <input type="tel" id="phone"
+                placeholder="01XXXXXXXXX" required>
+
+            <label for="city">Operating City</label>
+            <input type="text" id="city"
+                placeholder="Enter your city" required>
+
+            <label for="hub">Dispatch Hub</label>
+            <input type="text" id="hub"
+                placeholder="Enter dispatch hub" required>
+
+
+            <!-- Delivery Information -->
+            <p class="section-title">DELIVERY INFORMATION</p>
+
+            <label for="zones">Delivery Zones</label>
+            <input type="text" id="zones"
+                placeholder="Enter assigned delivery zones" required>
+
+            <label for="vehicle">Motorcycle</label>
+            <input type="text" id="vehicle"
+                placeholder="Enter motorcycle model" required>
+
+            <label for="registration">Registration Plate</label>
+            <input type="text" id="registration"
+                placeholder="Enter registration number" required>
+
+
+            <!-- Payment Information -->
+            <p class="section-title">PAYOUT INFORMATION</p>
+
+            <label for="bkash">bKash Payout Number</label>
+            <input type="tel" id="bkash"
+                placeholder="Enter bKash number" required>
+
+            <label for="holder">Account Holder Name</label>
+            <input type="text" id="holder"
+                placeholder="Enter account holder name" required>
+
+
+            <!-- Submit -->
+            <button type="submit" class="save-btn">
+                SAVE DETAILS <span>→</span>
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
