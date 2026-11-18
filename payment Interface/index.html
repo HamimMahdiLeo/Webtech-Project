@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Threaded Stories - Checkout</title>
+
+    <!-- CSS Connection -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+
+    <div class="top-bar">
+        ✨ EXPRESS BANGLADESH CHECKOUT (COD / BKASH / Nagad)
+    </div>
+
+
+    <!-- NAVIGATION BAR -->
+
+    <nav class="navbar">
+
+        <div class="brand">
+            <span class="brand-icon">♧</span>
+            <h3>THREADED STORIES</h3>
+        </div>
+
+    </nav>
+
+
+    <!-- MENU BAR -->
+
+    <div class="menu-bar">
+
+        <button class="menu-btn">🔥 All Jerseys</button>
+
+        <button class="custom-btn">✦ Custom Print Studio</button>
+
+    </div>
+
+
+    <!-- MAIN CHECKOUT SECTION -->
+
+    <main>
+
+        <div class="checkout-card">
+
+            <!-- CARD HEADER -->
+
+            <div class="card-header">
+
+                <h3>EXPRESS BANGLADESH CHECKOUT</h3>
+
+            </div>
+
+
+            <!-- CARD CONTENT -->
+
+            <div class="card-content">
+
+
+                <!-- FREE DELIVERY MESSAGE -->
+
+                <div class="delivery-message">
+
+                    <p>
+                        🎉 Order is over ৳1,000 — FREE Delivery Unlocked!
+                    </p>
+
+                    <div class="progress-bar">
+
+                        <div class="progress"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CUSTOMER DETAILS -->
+
+                <h4>Customer Delivery Details:</h4>
+
+
+                <div class="customer-info">
+
+                    <p>👤 Full Name: Tanvir Ahmed</p>
+
+                    <p>📞 Mobile Number: 017XXXXXXXX</p>
+
+                    <p>📍 Address: Bashundhara R/A, Block C, Dhaka</p>
+
+                </div>
+
+
+                <!-- DELIVERY ZONE -->
+
+                <h4>Select Delivery Zone:</h4>
+
+
+                <div class="zone-container">
+
+                    <button class="zone-btn active" id="insideDhaka">
+
+                        Inside Dhaka (৳70 / Free)
+
+                    </button>
+
+                    <button class="zone-btn" id="outsideDhaka">
+
+                        Outside Dhaka (৳130)
+
+                    </button>
+
+                </div>
+
+
+                <!-- PAYMENT METHOD -->
+
+                <h4>Payment Method:</h4>
+
+
+                <div class="payment-container">
+
+                    <button class="payment-btn active" data-payment="Cash COD">
+
+                        💵 Cash COD
+
+                    </button>
+
+                    <button class="payment-btn bkash" data-payment="bKash">
+
+                        bKash
+
+                    </button>
+
+                    <button class="payment-btn nagad" data-payment="Nagad">
+
+                        Nagad
+
+                    </button>
+
+                </div>
+
+
+                <!-- ORDER SUMMARY -->
+
+                <div class="order-summary">
+
+
+                    <div class="summary-row">
+
+                        <span>Bangladesh 26/27 Home Kit (Size M)</span>
+
+                        <strong>৳990</strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>Custom Name & Number (HAMZA #8)</span>
+
+                        <strong>৳250</strong>
+
+                    </div>
+
+
+                    <div class="summary-row">
+
+                        <span>Home Delivery Charge</span>
+
+                        <strong class="free" id="deliveryCharge">FREE</strong>
+
+                    </div>
+
+
+                    <hr>
+
+
+                    <div class="total-row">
+
+                        <strong>Total Payable (BDT)</strong>
+
+                        <strong class="total-price" id="totalPrice">৳1,240</strong>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- CONFIRM ORDER BUTTON -->
+
+                <button class="confirm-btn" id="confirmOrder">
+
+                    ✓ CONFIRM ORDER — ৳1,240
+
+                </button>
+
+
+                <!-- SUCCESS MESSAGE -->
+
+                <p id="successMessage"></p>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- JAVASCRIPT CONNECTION -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
