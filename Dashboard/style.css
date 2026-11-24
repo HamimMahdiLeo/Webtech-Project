@@ -386,33 +386,11 @@ nav a:hover {
   color: var(--text-primary);
 }
 
-.modal-price-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 24px;
-}
-
 .modal-price {
   font-size: 24px;
   font-weight: bold;
   color: var(--accent-lime);
-}
-
-.quick-add-btn {
-  width: 42px;
-  height: 42px;
-  border: none;
-  border-radius: 50%;
-  background-color: var(--accent-lime);
-  color: #000000;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.quick-add-btn:hover {
-  opacity: 0.9;
+  margin-bottom: 24px;
 }
 
 .size-selector {

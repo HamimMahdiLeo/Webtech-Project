@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threaded Stories — Custom Jersey Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="../Dashboard/image/mainlogo.webp" type="image/webp">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h2 class="logo">THREADED<span> STORIES</span></h2>
+
+    <nav>
+      <a href="../Dashboard/index.html#products">ALL JERSEYS</a>
+      <a href="../Dashboard/index.html#products">WORLD CUP</a>
+      <a href="../Dashboard/index.html#products">CLUB KITS</a>
+      <a href="../Dashboard/index.html#products">RETRO</a>
+      <a href="../Dashboard/index.html#products">TRENDING</a>
+      <a href="index.html" class="active-link">CUSTOM STUDIO</a>
+    </nav>
+
+    <div class="header-right">
+      <a href="../Dashboard/login.html" class="signin-link">SIGN IN</a>
+    </div>
+  </header>
+
+  <!-- Main Custom Studio Section -->
+  <main class="studio-main">
+    <section class="studio-card">
+
+      <div class="studio-header">
+        <p class="studio-badge">CUSTOM JERSEY STUDIO</p>
+        <h1>CUSTOM JERSEY DESIGN</h1>
+        <p class="studio-subtitle">Upload your design</p>
+      </div>
+
+      <form id="customForm" novalidate>
+        <div class="studio-grid">
+
+          <!-- Left Column: Design Upload Box -->
+          <div class="upload-column">
+            <label for="designUpload" id="uploadBox" class="upload-box">
+              <img id="designPreview" src="" alt="Uploaded Jersey Design Preview">
+              <span id="uploadPlaceholder">Upload here</span>
+            </label>
+            <input type="file" id="designUpload" accept="image/*" class="file-input">
+            <span class="error" id="uploadError"></span>
+          </div>
+
+          <!-- Right Column: Order Form -->
+          <div class="form-column">
+            <div class="form-group">
+              <label for="jerseyAmount">Enter Jersey Amount (Minimum 8 pieces)</label>
+              <input type="number" id="jerseyAmount" min="8" placeholder="e.g. 12">
+              <span class="error" id="amountError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="teamName">Team name</label>
+              <input type="text" id="teamName" placeholder="Enter your team name">
+              <span class="error" id="teamError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="playerList">Player name with squad number and jersey size</label>
+              <textarea id="playerList" rows="6" placeholder="i.e: Yamal 10 L&#10;Courtois 1 XL (GK)"></textarea>
+              <span class="error" id="playerError"></span>
+            </div>
+
+            <button type="submit" class="payment-btn">GO TO PAYMENT</button>
+            <p id="formMessage" class="form-message"></p>
+          </div>
+
+        </div>
+      </form>
+
+      <!-- Size Chart Section -->
+      <div class="size-chart-section">
+        <h2>SIZE CHART</h2>
+
+        <div class="size-chart-box">
+          <div class="size-chart-head">
+            SIZE &bull; CHEST (INCHES) &bull; LENGTH (INCHES) &bull; RECOMMENDED FIT
+          </div>
+
+          <ul class="size-chart-list">
+            <li>S &ndash; Length: 26" | Chest: 36" .</li>
+            <li>M &ndash; Length: 27" | Chest: 38" .</li>
+            <li>L &ndash; Length: 28" | Chest: 40" .</li>
+            <li>XL &ndash; Length: 29" | Chest: 42" .</li>
+            <li>XXL &ndash; Length: 30" | Chest: 44" .</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div class="copyright">
+    &copy; 2026 THREADED STORIES. All rights reserved.
+    <span>Bangladesh &middot; EN</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -76,13 +76,6 @@ for (let i = 0; i < allCards.length; i++) {
   });
 }
 
-// Quick Add (+) button inside Modal (adds 1 item immediately)
-document.getElementById("modalQuickAddBtn").addEventListener("click", function () {
-  cartCount = cartCount + 1;
-  cartTotal = cartTotal + currentModalPrice;
-  updateCartUI();
-});
-
 // Modal Size Selection
 const modalSizeButtons = document.querySelectorAll("#productModal .size-btn");
 for (let i = 0; i < modalSizeButtons.length; i++) {
