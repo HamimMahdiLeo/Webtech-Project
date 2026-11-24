@@ -45,16 +45,17 @@ function renderCatalog() {
 
   for (let i = 0; i < products.length; i++) {
     const item = products[i];
+    const displayTitle = item.kit ? item.name + " (" + item.kit + ")" : item.name;
     const card = document.createElement("div");
     card.className = "product-card";
     card.innerHTML = `
       <div class="product-image">
-        <img src="${item.image}" alt="${item.name}" class="image-p">
+        <img src="${item.image}" alt="${displayTitle}" class="image-p">
         <span class="preview-badge">QUICK PREVIEW</span>
       </div>
       <div class="product-info">
         <small class="edition-tag">${item.tag.toUpperCase()}</small>
-        <h3 class="product-title">${item.name}</h3>
+        <h3 class="product-title">${displayTitle}</h3>
         <p class="price-row">&#2547;<span class="product-price">${item.price}</span></p>
       </div>
     `;

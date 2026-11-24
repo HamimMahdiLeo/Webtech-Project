@@ -128,11 +128,12 @@ document.getElementById("adminKitImg").addEventListener("change", function () {
   reader.readAsDataURL(file);
 });
 
-// Module 03: Table Form Submit -> Saves Team name, Quantity per Size, Price, Caption, Tag, Jersey Image
+// Module 03: Table Form Submit -> Saves Team name, Kit, Quantity per Size, Price, Caption, Tag, Jersey Image
 document.getElementById("addJerseyForm").addEventListener("submit", function (event) {
   event.preventDefault();
 
   const teamName = document.getElementById("adminKitName").value.trim();
+  const kitType = document.getElementById("adminKitType").value;
   const price = Number(document.getElementById("adminKitPrice").value);
   const caption = document.getElementById("adminKitCaption").value.trim();
   const tag = document.getElementById("adminKitTag").value;
@@ -158,6 +159,7 @@ document.getElementById("addJerseyForm").addEventListener("submit", function (ev
   catalog.unshift({
     id: "kit-" + Date.now(),
     name: teamName,
+    kit: kitType,
     price: price,
     caption: caption,
     tag: tag,
@@ -180,7 +182,7 @@ document.getElementById("addJerseyForm").addEventListener("submit", function (ev
   document.getElementById("adminUploadPlaceholder").style.display = "inline";
 
   msgEl.style.color = "#c6ff00";
-  msgEl.innerHTML = teamName + " (" + totalUnits + " pcs) published to Dashboard!";
+  msgEl.innerHTML = teamName + " (" + kitType + " \u2022 " + totalUnits + " pcs) published to Dashboard!";
   renderStock();
 });
 
@@ -224,7 +226,9 @@ function renderStock() {
     row.innerHTML = `
       <div>
         <div class="stock-title">
-          ${item.name} &mdash; ${formatBDT(item.price)} <span>&bull; ${totalPcs} pcs (${item.tag})</span>
+          ${item.name}
+          ${item.kit ? `<span class="kit-pill-badge">${item.kit}</span>` : ""}
+          &mdash; ${formatBDT(item.price)} <span>&bull; ${totalPcs} pcs (${item.tag})</span>
         </div>
         ${item.caption ? `<div class="stock-caption">${item.caption}</div>` : ""}
       </div>
