@@ -415,7 +415,7 @@ nav a:hover {
 
 .insert-table th {
   text-align: left;
-  padding: 12px 14px;
+  padding: 12px 12px;
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 0.5px;
@@ -426,18 +426,18 @@ nav a:hover {
 }
 
 .insert-table td {
-  padding: 12px;
+  padding: 10px;
   border: 1px solid var(--border-subtle);
   vertical-align: middle;
 }
 
 .ts-input {
   width: 100%;
-  min-width: 140px;
+  min-width: 120px;
   background-color: var(--bg-body);
   border: 1px solid var(--border-input);
   color: var(--text-primary);
-  padding: 10px 11px;
+  padding: 10px 10px;
   font-family: Arial, sans-serif;
   font-size: 13px;
   outline: none;
@@ -447,15 +447,19 @@ nav a:hover {
   border-color: var(--accent-lime);
 }
 
+.kit-cell-input {
+  min-width: 125px;
+}
+
 .price-cell-input {
-  min-width: 95px;
-  width: 105px;
+  min-width: 88px;
+  width: 96px;
 }
 
 /* Per-Size Quantity Inputs inside Table Cell */
 .size-qty-grid {
   display: flex;
-  gap: 6px;
+  gap: 5px;
 }
 
 .size-qty-box {
@@ -466,7 +470,7 @@ nav a:hover {
 }
 
 .size-qty-box span {
-  padding: 0 7px;
+  padding: 0 6px;
   font-size: 11px;
   font-weight: bold;
   color: var(--accent-lime);
@@ -474,11 +478,11 @@ nav a:hover {
 }
 
 .size-qty-input {
-  width: 44px;
+  width: 40px;
   background: none;
   border: none;
   color: var(--text-primary);
-  padding: 8px 4px;
+  padding: 8px 3px;
   font-size: 12px;
   font-weight: bold;
   text-align: center;
@@ -494,8 +498,8 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 135px;
-  height: 42px;
+  min-width: 125px;
+  height: 40px;
   padding: 4px 10px;
   background-color: var(--bg-body);
   border: 1px dashed var(--border-input);
@@ -513,7 +517,7 @@ nav a:hover {
 
 #adminKitPreview {
   display: none;
-  height: 34px;
+  height: 32px;
   width: auto;
   object-fit: contain;
 }
@@ -577,6 +581,19 @@ nav a:hover {
 .stock-title span {
   color: var(--text-muted);
   font-weight: normal;
+}
+
+.kit-pill-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 7px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background-color: var(--bg-body);
+  border: 1px solid var(--accent-lime);
+  color: var(--accent-lime) !important;
+  text-transform: uppercase;
 }
 
 .stock-caption {

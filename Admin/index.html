@@ -188,6 +188,7 @@
                 <thead>
                   <tr>
                     <th>Team name</th>
+                    <th>Kit</th>
                     <th>Quantity per Size</th>
                     <th>Price</th>
                     <th>Caption</th>
@@ -198,7 +199,16 @@
                 <tbody>
                   <tr>
                     <td>
-                      <input type="text" id="adminKitName" placeholder="e.g. Brazil Home 26/27" class="ts-input">
+                      <input type="text" id="adminKitName" placeholder="e.g. Brazil 26/27" class="ts-input">
+                    </td>
+                    <td>
+                      <select id="adminKitType" class="ts-input kit-cell-input">
+                        <option value="Home">Home</option>
+                        <option value="Away">Away</option>
+                        <option value="3rd kit">3rd kit</option>
+                        <option value="Special Edition">Special Edition</option>
+                        <option value="Retro">Retro</option>
+                      </select>
                     </td>
                     <td>
                       <div class="size-qty-grid">
