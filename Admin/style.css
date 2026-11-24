@@ -1,0 +1,601 @@
+/* Reset & Threaded Stories Design Tokens */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-body: #0b0b0b;
+  --bg-hero: #111111;
+  --bg-card: #171717;
+  --bg-surface: #191919;
+  --border-dark: #222222;
+  --border-subtle: #333333;
+  --border-input: #444444;
+  --accent-lime: #c6ff00;
+  --accent-red: #ff3333;
+  --accent-gold: #ffd166;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --text-muted: #888888;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  font-family: Arial, sans-serif;
+}
+
+/* Top Header (Matches Dashboard & Cart) */
+header {
+  height: 67px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  border-bottom: 1px solid var(--border-subtle);
+  background-color: var(--bg-body);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.logo {
+  font-size: 27px;
+  font-weight: bold;
+}
+
+.logo a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--accent-lime);
+}
+
+nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  margin: 0 14px;
+  font-size: 13px;
+}
+
+nav a:hover {
+  color: var(--accent-lime);
+}
+
+.header-right {
+  width: 378px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.admin-badge-pill {
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--accent-lime);
+}
+
+.signin-link {
+  padding: 10px 20px;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.signin-link:hover {
+  border-color: var(--accent-lime);
+  color: var(--accent-lime);
+}
+
+/* Console Shell: Left Sidebar + Main Workspace */
+.console-shell {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  min-height: calc(100vh - 134px);
+}
+
+/* Left Sidebar */
+.console-sidebar {
+  background-color: var(--bg-hero);
+  border-right: 1px solid var(--border-subtle);
+  padding: 26px 18px;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 22px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.brand-square {
+  width: 38px;
+  height: 38px;
+  background-color: var(--accent-lime);
+  color: #000000;
+  font-weight: bold;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar-brand h3 {
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-brand small {
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-btn {
+  width: 100%;
+  text-align: left;
+  padding: 13px 16px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-dark);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.menu-btn:hover {
+  border-color: var(--accent-lime);
+  color: var(--text-primary);
+}
+
+.menu-btn.active {
+  background-color: var(--accent-lime);
+  border-color: var(--accent-lime);
+  color: #000000;
+}
+
+/* Right Content Area */
+.console-content {
+  padding: 36px 40px;
+}
+
+.module-view {
+  display: none;
+}
+
+.module-view.active {
+  display: block;
+}
+
+.module-heading {
+  font-size: 22px;
+  letter-spacing: 1px;
+  margin-bottom: 26px;
+}
+
+.module-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+}
+
+.module-header-bar .module-heading {
+  margin-bottom: 0;
+}
+
+.hint-text {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.ts-panel {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 24px;
+}
+
+.text-lime {
+  color: var(--accent-lime) !important;
+}
+
+.text-gold {
+  color: var(--accent-gold) !important;
+}
+
+.text-red {
+  color: var(--accent-red) !important;
+}
+
+/* MODULE 01: Sales Reports */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.kpi-box small {
+  display: block;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.kpi-box h3 {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.sales-split {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 20px;
+}
+
+.sub-heading {
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  margin-bottom: 22px;
+}
+
+.cat-progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cat-progress-item p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.cat-progress-item strong {
+  color: var(--text-primary);
+}
+
+.bar-track {
+  height: 8px;
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-dark);
+}
+
+.bar-fill {
+  height: 100%;
+}
+
+.fill-lime {
+  background-color: var(--accent-lime);
+}
+
+.fill-white {
+  background-color: #ffffff;
+}
+
+.fill-muted {
+  background-color: #888888;
+}
+
+.fill-gold {
+  background-color: var(--accent-gold);
+}
+
+.channel-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.channel-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-dark);
+  padding: 16px;
+}
+
+.channel-card small {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.channel-card p {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* MODULE 02: Customer Orders & Custom Print Queue */
+.queue-header {
+  display: grid;
+  grid-template-columns: 105px 1.2fr 1.6fr 1.2fr 95px 150px;
+  gap: 12px;
+  padding: 0 14px 14px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+.queue-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.queue-row {
+  display: grid;
+  grid-template-columns: 105px 1.2fr 1.6fr 1.2fr 95px 150px;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 14px;
+  border-bottom: 1px solid var(--border-dark);
+  font-size: 13px;
+}
+
+.queue-row:last-child {
+  border-bottom: none;
+}
+
+.queue-row:hover {
+  background-color: var(--bg-surface);
+}
+
+.ord-id {
+  font-weight: bold;
+  color: var(--accent-lime);
+}
+
+.status-pill {
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 11px;
+  font-weight: bold;
+  padding: 6px 10px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.status-pill:hover {
+  border-color: var(--accent-lime);
+}
+
+.status-printing {
+  color: var(--accent-gold);
+  border-color: var(--accent-gold);
+}
+
+.status-pending {
+  color: var(--text-secondary);
+}
+
+.status-shipped {
+  color: #66b3ff;
+  border-color: #66b3ff;
+}
+
+.status-delivered {
+  color: var(--accent-lime);
+  border-color: var(--accent-lime);
+}
+
+/* MODULE 03: Warehouse Stock & Suppliers */
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.supplier-card .sup-tag {
+  display: block;
+  color: var(--accent-lime);
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  margin-bottom: 8px;
+}
+
+.supplier-card h3 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.sup-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+.sup-meta {
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--text-secondary);
+}
+
+.stock-wrapper {
+  margin-top: 22px;
+}
+
+.stock-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.stock-row {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-dark);
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.stock-title {
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.size-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.chip-ok {
+  color: var(--accent-lime);
+}
+
+.chip-low {
+  color: var(--accent-gold);
+}
+
+.chip-out {
+  color: var(--accent-red);
+}
+
+.restock-btn {
+  padding: 8px 14px;
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: 11px;
+  font-weight: bold;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.restock-btn:hover {
+  border-color: var(--accent-lime);
+  color: var(--accent-lime);
+}
+
+/* MODULE 04: Customer Reviews Moderation */
+.reviews-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.review-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 24px;
+}
+
+.review-head {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.stars {
+  color: var(--accent-gold);
+  margin-right: 6px;
+}
+
+.verified-tag {
+  color: var(--accent-lime);
+}
+
+.review-quote {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.feature-toggle-btn {
+  padding: 9px 16px;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid var(--border-subtle);
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.feature-toggle-btn.featured {
+  background-color: var(--accent-lime);
+  border-color: var(--accent-lime);
+  color: #000000;
+}
+
+/* MODULE 05: User Profiles & VIP Collectors */
+.profile-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.vip-tag {
+  color: var(--accent-gold);
+  font-size: 13px;
+}
+
+.profile-contact {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.profile-stats {
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--accent-lime);
+}
+
+/* Footer */
+.copyright {
+  padding: 25px 40px;
+  border-top: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 960px) {
+  .console-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .kpi-row,
+  .sales-split,
+  .two-col-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .queue-header {
+    display: none;
+  }
+
+  .queue-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+}

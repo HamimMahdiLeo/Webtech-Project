@@ -1,16 +1,86 @@
-let cartCount = 0;
-let cartTotal = 0;
-let currentModalPrice = 0;
+const CATALOG_KEY = "threadedStoriesCatalog";
+const STORAGE_KEY = "threadedStoriesBag";
 
+let bag = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+let currentModalPrice = 0;
+let currentModalTitle = "";
+let currentModalEdition = "";
+let currentModalImage = "";
+
+// Sync header Bag total & count
 function updateCartUI() {
-  document.getElementById("cartTotal").innerHTML = cartTotal;
-  document.getElementById("cartCount").innerHTML = cartCount;
+  let totalQty = 0;
+  let totalCost = 0;
+
+  for (let i = 0; i < bag.length; i++) {
+    totalQty += bag[i].qty;
+    totalCost += (bag[i].price + (bag[i].hasPrint ? 250 : 0)) * bag[i].qty;
+  }
+
+  document.getElementById("cartTotal").innerHTML = totalCost.toLocaleString("en-IN");
+  document.getElementById("cartCount").innerHTML = totalQty;
 }
 
+// Render jerseys added from Admin (starts empty if none exist yet)
+function renderCatalog() {
+  const catalog = document.getElementById("catalog");
+  const emptyState = document.getElementById("emptyState");
+  const products = JSON.parse(localStorage.getItem(CATALOG_KEY)) || [];
+
+  const oldCards = catalog.querySelectorAll(".product-card");
+  for (let i = 0; i < oldCards.length; i++) {
+    oldCards[i].remove();
+  }
+
+  document.getElementById("itemCount").innerHTML = products.length + " items";
+
+  if (products.length === 0) {
+    emptyState.querySelector("h3").innerHTML = "No jerseys available yet";
+    emptyState.querySelector("p").innerHTML = "New season drops will appear here once added by the admin.";
+    emptyState.style.display = "block";
+    return;
+  }
+
+  emptyState.style.display = "none";
+
+  for (let i = 0; i < products.length; i++) {
+    const item = products[i];
+    const card = document.createElement("div");
+    card.className = "product-card";
+    card.innerHTML = `
+      <div class="product-image">
+        <img src="${item.image}" alt="${item.name}" class="image-p">
+        <span class="preview-badge">QUICK PREVIEW</span>
+      </div>
+      <div class="product-info">
+        <small class="edition-tag">${item.tag.toUpperCase()}</small>
+        <h3 class="product-title">${item.name}</h3>
+        <p class="price-row">&#2547;<span class="product-price">${item.price}</span></p>
+      </div>
+    `;
+
+    card.addEventListener("click", function () {
+      openProductModal(card, item);
+    });
+
+    catalog.insertBefore(card, emptyState);
+  }
+}
+
+// Filter jerseys by search text or nav category
 function filterJerseys() {
   const query = document.getElementById("searchInput").value.trim().toLowerCase();
   const cards = document.querySelectorAll(".product-card");
+  const emptyState = document.getElementById("emptyState");
   let visibleCount = 0;
+
+  if (cards.length === 0) {
+    document.getElementById("itemCount").innerHTML = "0 items";
+    emptyState.querySelector("h3").innerHTML = "No jerseys available yet";
+    emptyState.querySelector("p").innerHTML = "New season drops will appear here once added by the admin.";
+    emptyState.style.display = "block";
+    return;
+  }
 
   for (let i = 0; i < cards.length; i++) {
     const title = cards[i].querySelector(".product-title").innerHTML.toLowerCase();
@@ -26,8 +96,9 @@ function filterJerseys() {
 
   document.getElementById("itemCount").innerHTML = visibleCount + " items";
 
-  const emptyState = document.getElementById("emptyState");
   if (visibleCount === 0) {
+    emptyState.querySelector("h3").innerHTML = "No jerseys matched your search";
+    emptyState.querySelector("p").innerHTML = "Try searching for another team, club, or collection.";
     emptyState.style.display = "block";
   } else {
     emptyState.style.display = "none";
@@ -35,14 +106,17 @@ function filterJerseys() {
 }
 
 // Open Product Detail Modal
-function openProductModal(card) {
-  const imgSrc = card.querySelector(".image-p").src;
+function openProductModal(card, item) {
+  const imgSrc = item ? item.image : card.querySelector(".image-p").src;
   const imgAlt = card.querySelector(".image-p").alt;
   const edition = card.querySelector(".edition-tag").innerHTML;
   const title = card.querySelector(".product-title").innerHTML;
   const price = Number(card.querySelector(".product-price").innerHTML);
 
   currentModalPrice = price;
+  currentModalTitle = title;
+  currentModalEdition = edition;
+  currentModalImage = imgSrc;
 
   document.getElementById("modalImg").src = imgSrc;
   document.getElementById("modalImg").alt = imgAlt;
@@ -66,14 +140,6 @@ function openProductModal(card) {
 
 function closeProductModal() {
   document.getElementById("productModal").style.display = "none";
-}
-
-// Click on any Product Card to open Detail UI
-const allCards = document.querySelectorAll(".product-card");
-for (let i = 0; i < allCards.length; i++) {
-  allCards[i].addEventListener("click", function () {
-    openProductModal(allCards[i]);
-  });
 }
 
 // Modal Size Selection
@@ -102,11 +168,38 @@ document.getElementById("modalPlusBtn").addEventListener("click", function () {
   qtyEl.innerHTML = qty + 1;
 });
 
-// Modal Add to Bag button
+// Modal Add to Bag button (persists to shared Bag)
 document.getElementById("modalAddBtn").addEventListener("click", function () {
   const qty = Number(document.getElementById("modalQty").innerHTML);
-  cartCount = cartCount + qty;
-  cartTotal = cartTotal + currentModalPrice * qty;
+  const selectedSize = document.querySelector("#productModal .size-btn.selected").innerHTML;
+  const itemId = currentModalTitle.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "-" + selectedSize.toLowerCase();
+
+  let found = false;
+  for (let i = 0; i < bag.length; i++) {
+    if (bag[i].id === itemId) {
+      bag[i].qty += qty;
+      found = true;
+      break;
+    }
+  }
+
+  if (!found) {
+    bag.push({
+      id: itemId,
+      title: currentModalTitle,
+      edition: currentModalEdition,
+      image: currentModalImage,
+      size: selectedSize,
+      price: currentModalPrice,
+      qty: qty,
+      hasPrint: false,
+      printName: "",
+      printNumber: "",
+      isCustomOrder: false
+    });
+  }
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(bag));
   updateCartUI();
   closeProductModal();
 });
@@ -137,5 +230,6 @@ for (let i = 0; i < catLinks.length; i++) {
 // Live search
 document.getElementById("searchInput").addEventListener("keyup", filterJerseys);
 
-// Initialize Cart Display
+// Initialize Catalog & Cart Display
+renderCatalog();
 updateCartUI();

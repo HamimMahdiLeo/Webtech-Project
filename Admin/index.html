@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threaded Stories — Admin Console</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="../Dashboard/mainlogo.webp" type="image/webp">
+</head>
+<body>
+
+  <!-- Top Storefront Bar (Matches Dashboard Alignment) -->
+  <header>
+    <h2 class="logo"><a href="../Dashboard/index.html">THREADED<span> STORIES</span></a></h2>
+
+    <nav>
+      <a href="../Dashboard/index.html#products">ALL JERSEYS</a>
+      <a href="../Dashboard/index.html#products">WORLD CUP</a>
+      <a href="../Dashboard/index.html#products">CLUB KITS</a>
+      <a href="../Dashboard/index.html#products">RETRO</a>
+      <a href="../Dashboard/index.html#products">TRENDING</a>
+      <a href="../Custom Jersey Studio/index.html">CUSTOM STUDIO</a>
+    </nav>
+
+    <div class="header-right">
+      <span class="admin-badge-pill">ADMIN CONSOLE</span>
+      <a href="../Dashboard/index.html" class="signin-link">EXIT ADMIN</a>
+    </div>
+  </header>
+
+  <!-- Sidebar + 5-Module Admin Layout -->
+  <div class="console-shell">
+
+    <!-- Left Sidebar Navigation -->
+    <aside class="console-sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-square">TS</div>
+        <div>
+          <h3>THREADED STORIES</h3>
+          <small>ADMIN CONSOLE &bull; BDT &#2547;</small>
+        </div>
+      </div>
+
+      <div class="sidebar-menu">
+        <button type="button" class="menu-btn active" data-module="module1">
+          1. Sales Reports
+        </button>
+        <button type="button" class="menu-btn" data-module="module2">
+          2. Orders (<span id="sidebarOrderCount">6</span>)
+        </button>
+        <button type="button" class="menu-btn" data-module="module3">
+          3. Suppliers &amp; Stock
+        </button>
+        <button type="button" class="menu-btn" data-module="module4">
+          4. Customer Reviews
+        </button>
+        <button type="button" class="menu-btn" data-module="module5">
+          5. User Profiles
+        </button>
+      </div>
+    </aside>
+
+    <!-- Right Module Workspace -->
+    <main class="console-content">
+
+      <!-- =========================================================
+           MODULE 01: SALES REPORTS & REVENUE (BDT ৳)
+           ========================================================= -->
+      <section id="module1" class="module-view active">
+        <h2 class="module-heading">MODULE 01 &bull; SALES REPORTS &amp; REVENUE (BDT &#2547;)</h2>
+
+        <!-- 4 Top KPI Cards -->
+        <div class="kpi-row">
+          <div class="ts-panel kpi-box">
+            <small>TOTAL REVENUE (MONTH)</small>
+            <h3 id="kpiTotalRevenue" class="text-lime">&#2547;4,82,500</h3>
+          </div>
+
+          <div class="ts-panel kpi-box">
+            <small>COMPLETED ORDERS</small>
+            <h3 id="kpiCompletedKits">384 Kits</h3>
+          </div>
+
+          <div class="ts-panel kpi-box">
+            <small>CUSTOM NAME/NO PRINTS</small>
+            <h3 class="text-lime">142 Kits (+&#2547;250)</h3>
+          </div>
+
+          <div class="ts-panel kpi-box">
+            <small>AVG ORDER VALUE</small>
+            <h3 id="kpiAvgOrder">&#2547;1,256</h3>
+          </div>
+        </div>
+
+        <!-- Bottom Split: Category Bars + BD Payment Channels -->
+        <div class="sales-split">
+          <!-- Revenue by Jersey Category -->
+          <div class="ts-panel">
+            <h4 class="sub-heading">REVENUE BY JERSEY CATEGORY</h4>
+
+            <div class="cat-progress-list">
+              <div class="cat-progress-item">
+                <p>National Team Kits (Bangladesh, Brazil, Argentina) &mdash; <strong>&#2547;2,02,650 (42%)</strong></p>
+                <div class="bar-track">
+                  <div class="bar-fill fill-lime" style="width: 42%;"></div>
+                </div>
+              </div>
+
+              <div class="cat-progress-item">
+                <p>Football Club Kits (Real Madrid, Barcelona, Arsenal) &mdash; <strong>&#2547;1,49,575 (31%)</strong></p>
+                <div class="bar-track">
+                  <div class="bar-fill fill-white" style="width: 31%;"></div>
+                </div>
+              </div>
+
+              <div class="cat-progress-item">
+                <p>Full Sleeve Player Issue (26/27 Long Sleeve) &mdash; <strong>&#2547;77,200 (16%)</strong></p>
+                <div class="bar-track">
+                  <div class="bar-fill fill-muted" style="width: 16%;"></div>
+                </div>
+              </div>
+
+              <div class="cat-progress-item">
+                <p>Retro Classics (AC Milan 07, Brazil 02) &mdash; <strong>&#2547;53,075 (11%)</strong></p>
+                <div class="bar-track">
+                  <div class="bar-fill fill-gold" style="width: 11%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- BD Payment Channels -->
+          <div class="ts-panel">
+            <h4 class="sub-heading">BD PAYMENT CHANNELS</h4>
+
+            <div class="channel-stack">
+              <div class="channel-card">
+                <small>Cash on Delivery (54%)</small>
+                <p class="text-lime">&#2547;2,60,550</p>
+              </div>
+
+              <div class="channel-card">
+                <small class="text-lime">bKash Merchant (31%)</small>
+                <p>&#2547;1,49,575</p>
+              </div>
+
+              <div class="channel-card">
+                <small class="text-gold">Nagad Instant Pay (15%)</small>
+                <p>&#2547;72,375</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           MODULE 02: CUSTOMER ORDERS & CUSTOM PRINT QUEUE
+           ========================================================= -->
+      <section id="module2" class="module-view">
+        <div class="module-header-bar">
+          <h2 class="module-heading">MODULE 02 &bull; CUSTOMER ORDERS &amp; CUSTOM PRINT QUEUE</h2>
+          <span class="hint-text">Click status badge to advance stage</span>
+        </div>
+
+        <div class="ts-panel">
+          <div class="queue-header">
+            <span>ORDER ID</span>
+            <span>CUSTOMER &amp; AREA</span>
+            <span>JERSEY &amp; SIZE</span>
+            <span>CUSTOM PRINT</span>
+            <span>TOTAL</span>
+            <span>STATUS</span>
+          </div>
+
+          <div id="ordersQueueList" class="queue-list"></div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           MODULE 03: WAREHOUSE STOCK & SUPPLIERS
+           ========================================================= -->
+      <section id="module3" class="module-view">
+        <h2 class="module-heading">MODULE 03 &bull; WAREHOUSE STOCK &amp; SUPPLIERS</h2>
+
+        <!-- Two Supplier Cards -->
+        <div class="two-col-grid">
+          <div class="ts-panel supplier-card">
+            <small class="sup-tag">SUP-01 &bull; BANGKOK, THAILAND</small>
+            <h3>Bangkok Pro Sportswear Co.</h3>
+            <p class="sup-desc">100% Thai Player Edition &amp; 3D Silicone Crests</p>
+            <p class="sup-meta">
+              Lead Time: 7&ndash;10 Days Air &nbsp;|&nbsp; Active POs: 2 &nbsp;|&nbsp; Due: <span class="text-lime">&#2547;1,45,000</span>
+            </p>
+          </div>
+
+          <div class="ts-panel supplier-card">
+            <small class="sup-tag">SUP-02 &bull; NARAYANGANJ, BANGLADESH</small>
+            <h3>Narayanganj Jacquard &amp; Knit Hub</h3>
+            <p class="sup-desc">National Team Fan Version &amp; Custom Sublimation</p>
+            <p class="sup-meta">
+              Lead Time: 2&ndash;3 Days Local &nbsp;|&nbsp; Active POs: 1 &nbsp;|&nbsp; Due: <span class="text-lime">&#2547;42,000</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- Warehouse Kit Size Breakdown Rows -->
+        <div class="ts-panel stock-wrapper">
+          <div id="warehouseStockList" class="stock-list"></div>
+        </div>
+      </section>
+
+      <!-- =========================================================
+           MODULE 04: CUSTOMER REVIEWS MODERATION (4.9 ★)
+           ========================================================= -->
+      <section id="module4" class="module-view">
+        <h2 class="module-heading">MODULE 04 &bull; CUSTOMER REVIEWS MODERATION (4.9 &#9733;)</h2>
+
+        <div id="reviewsModList" class="reviews-stack"></div>
+      </section>
+
+      <!-- =========================================================
+           MODULE 05: REGISTERED USER PROFILES & VIP COLLECTORS
+           ========================================================= -->
+      <section id="module5" class="module-view">
+        <h2 class="module-heading">MODULE 05 &bull; REGISTERED USER PROFILES &amp; VIP COLLECTORS</h2>
+
+        <div id="vipProfilesGrid" class="two-col-grid"></div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <div class="copyright">
+    &copy; 2026 THREADED STORIES ADMIN CONSOLE. All rights reserved.
+    <span>Bangladesh &middot; BDT (&#2547;)</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

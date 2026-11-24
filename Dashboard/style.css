@@ -102,6 +102,12 @@ nav a:hover {
   font-size: 13px;
   font-weight: bold;
   letter-spacing: 0.5px;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.cart-pill:hover {
+  color: var(--accent-lime);
 }
 
 .header-right b {
