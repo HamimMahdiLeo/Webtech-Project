@@ -21,7 +21,7 @@ function updateCartUI() {
   document.getElementById("cartCount").innerHTML = totalQty;
 }
 
-// Render jerseys added from Admin (starts empty if none exist yet)
+// Render jerseys added from Admin
 function renderCatalog() {
   const catalog = document.getElementById("catalog");
   const emptyState = document.getElementById("emptyState");
@@ -125,11 +125,35 @@ function openProductModal(card, item) {
   document.getElementById("modalPrice").innerHTML = price;
   document.getElementById("modalQty").innerHTML = 1;
 
-  // Reset size selection to M
+  // Render optional Admin Caption below title
+  let captionEl = document.getElementById("modalCaption");
+  if (!captionEl) {
+    captionEl = document.createElement("p");
+    captionEl.id = "modalCaption";
+    captionEl.style.color = "#aaaaaa";
+    captionEl.style.fontSize = "13px";
+    captionEl.style.marginBottom = "12px";
+    const titleEl = document.getElementById("modalTitle");
+    titleEl.parentNode.insertBefore(captionEl, titleEl.nextSibling);
+  }
+  captionEl.innerHTML = item && item.caption ? item.caption : "";
+  captionEl.style.display = item && item.caption ? "block" : "none";
+
+  // Enable only sizes with stock > 0 and auto-select the first available size
   const sizeButtons = document.querySelectorAll("#productModal .size-btn");
+  let firstAvailableSelected = false;
+
   for (let i = 0; i < sizeButtons.length; i++) {
-    if (sizeButtons[i].innerHTML === "M") {
+    const sz = sizeButtons[i].innerHTML;
+    const available = item && item.sizes ? (item.sizes[sz] || 0) > 0 : true;
+
+    sizeButtons[i].disabled = !available;
+    sizeButtons[i].style.opacity = available ? "1" : "0.35";
+    sizeButtons[i].style.cursor = available ? "pointer" : "not-allowed";
+
+    if (available && !firstAvailableSelected) {
       sizeButtons[i].className = "size-btn selected";
+      firstAvailableSelected = true;
     } else {
       sizeButtons[i].className = "size-btn";
     }
@@ -146,6 +170,7 @@ function closeProductModal() {
 const modalSizeButtons = document.querySelectorAll("#productModal .size-btn");
 for (let i = 0; i < modalSizeButtons.length; i++) {
   modalSizeButtons[i].addEventListener("click", function () {
+    if (this.disabled) return;
     for (let j = 0; j < modalSizeButtons.length; j++) {
       modalSizeButtons[j].className = "size-btn";
     }
@@ -168,10 +193,13 @@ document.getElementById("modalPlusBtn").addEventListener("click", function () {
   qtyEl.innerHTML = qty + 1;
 });
 
-// Modal Add to Bag button (persists to shared Bag)
+// Modal Add to Bag button
 document.getElementById("modalAddBtn").addEventListener("click", function () {
+  const selectedBtn = document.querySelector("#productModal .size-btn.selected");
+  if (!selectedBtn) return;
+
   const qty = Number(document.getElementById("modalQty").innerHTML);
-  const selectedSize = document.querySelector("#productModal .size-btn.selected").innerHTML;
+  const selectedSize = selectedBtn.innerHTML;
   const itemId = currentModalTitle.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "-" + selectedSize.toLowerCase();
 
   let found = false;
@@ -229,6 +257,18 @@ for (let i = 0; i < catLinks.length; i++) {
 
 // Live search
 document.getElementById("searchInput").addEventListener("keyup", filterJerseys);
+
+// Live sync if Admin updates catalog or Cart updates bag in another open tab
+window.addEventListener("storage", function (event) {
+  if (event.key === CATALOG_KEY) {
+    renderCatalog();
+    filterJerseys();
+  }
+  if (event.key === STORAGE_KEY) {
+    bag = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+    updateCartUI();
+  }
+});
 
 // Initialize Catalog & Cart Display
 renderCatalog();

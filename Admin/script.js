@@ -1,4 +1,5 @@
-// Seeded Orders matching Module 02 + any live orders placed from Cart
+const CATALOG_KEY = "threadedStoriesCatalog";
+
 const SEED_ORDERS = [
   {
     id: "ORD-9841",
@@ -42,24 +43,6 @@ const SEED_ORDERS = [
   }
 ];
 
-const WAREHOUSE_STOCK = [
-  {
-    name: "Bangladesh 26/27 Home Kit",
-    price: 990,
-    sizes: { S: 12, M: 24, L: 18, XL: 9, XXL: 3 }
-  },
-  {
-    name: "Real Madrid 26/27 Home Kit",
-    price: 1050,
-    sizes: { S: 8, M: 19, L: 4, XL: 11, XXL: 6 }
-  },
-  {
-    name: "FC Barcelona 26/27 Full Sleeve",
-    price: 1290,
-    sizes: { S: 5, M: 14, L: 12, XL: 2, XXL: 0 }
-  }
-];
-
 const CUSTOMER_REVIEWS = [
   {
     author: "Tanvir Ahmed",
@@ -96,9 +79,18 @@ const VIP_PROFILES = [
 
 const STATUS_CYCLE = ["Pending", "Custom Printing", "Shipped", "Delivered"];
 let orders = [...SEED_ORDERS];
+let uploadedJerseyDataUrl = "";
 
 function formatBDT(num) {
   return "\u09F3" + num.toLocaleString("en-IN");
+}
+
+function getCatalog() {
+  return JSON.parse(localStorage.getItem(CATALOG_KEY)) || [];
+}
+
+function saveCatalog(catalog) {
+  localStorage.setItem(CATALOG_KEY, JSON.stringify(catalog));
 }
 
 // Sidebar Module Navigation
@@ -119,6 +111,152 @@ for (let i = 0; i < menuButtons.length; i++) {
     document.getElementById(targetId).classList.add("active");
   });
 }
+
+// Module 03: Image Upload Preview inside Table
+document.getElementById("adminKitImg").addEventListener("change", function () {
+  const file = this.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    uploadedJerseyDataUrl = e.target.result;
+    const previewImg = document.getElementById("adminKitPreview");
+    previewImg.src = uploadedJerseyDataUrl;
+    previewImg.style.display = "block";
+    document.getElementById("adminUploadPlaceholder").style.display = "none";
+  };
+  reader.readAsDataURL(file);
+});
+
+// Module 03: Table Form Submit -> Saves Team name, Quantity per Size, Price, Caption, Tag, Jersey Image
+document.getElementById("addJerseyForm").addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const teamName = document.getElementById("adminKitName").value.trim();
+  const price = Number(document.getElementById("adminKitPrice").value);
+  const caption = document.getElementById("adminKitCaption").value.trim();
+  const tag = document.getElementById("adminKitTag").value;
+  const msgEl = document.getElementById("adminKitMsg");
+
+  const sizeMap = {
+    S: Math.max(0, Number(document.getElementById("qtySizeS").value) || 0),
+    M: Math.max(0, Number(document.getElementById("qtySizeM").value) || 0),
+    L: Math.max(0, Number(document.getElementById("qtySizeL").value) || 0),
+    XL: Math.max(0, Number(document.getElementById("qtySizeXL").value) || 0),
+    XXL: Math.max(0, Number(document.getElementById("qtySizeXXL").value) || 0)
+  };
+
+  const totalUnits = sizeMap.S + sizeMap.M + sizeMap.L + sizeMap.XL + sizeMap.XXL;
+
+  if (!teamName || totalUnits < 1 || price < 100 || !uploadedJerseyDataUrl) {
+    msgEl.style.color = "#ff3333";
+    msgEl.innerHTML = "Please fill in Team name, at least 1 size quantity, Price, and Jersey Image.";
+    return;
+  }
+
+  const catalog = getCatalog();
+  catalog.unshift({
+    id: "kit-" + Date.now(),
+    name: teamName,
+    price: price,
+    caption: caption,
+    tag: tag,
+    image: uploadedJerseyDataUrl,
+    sizes: sizeMap
+  });
+
+  try {
+    saveCatalog(catalog);
+  } catch (err) {
+    msgEl.style.color = "#ff3333";
+    msgEl.innerHTML = "Image file is too large for browser storage. Use a compressed WebP/JPG under 300KB.";
+    return;
+  }
+
+  // Reset form & preview
+  document.getElementById("addJerseyForm").reset();
+  uploadedJerseyDataUrl = "";
+  document.getElementById("adminKitPreview").style.display = "none";
+  document.getElementById("adminUploadPlaceholder").style.display = "inline";
+
+  msgEl.style.color = "#c6ff00";
+  msgEl.innerHTML = teamName + " (" + totalUnits + " pcs) published to Dashboard!";
+  renderStock();
+});
+
+// Render Module 03: Live Warehouse Stock synced with Dashboard
+function renderStock() {
+  const listEl = document.getElementById("warehouseStockList");
+  const catalog = getCatalog();
+  listEl.innerHTML = "";
+
+  if (catalog.length === 0) {
+    listEl.innerHTML = `<p style="color:#888888; font-size:13px;">No jerseys published yet. Use the table above to add your first jersey to the Dashboard.</p>`;
+    return;
+  }
+
+  for (let i = 0; i < catalog.length; i++) {
+    const item = catalog[i];
+    let totalPcs = 0;
+    let chipsHtml = "";
+
+    const sizeKeys = ["S", "M", "L", "XL", "XXL"];
+    for (let s = 0; s < sizeKeys.length; s++) {
+      const sz = sizeKeys[s];
+      const count = item.sizes[sz] || 0;
+      totalPcs += count;
+
+      let chipClass = "chip-ok";
+      let tag = "";
+      if (count === 0) {
+        chipClass = "chip-out";
+        tag = " OUT";
+      } else if (count <= 4) {
+        chipClass = "chip-low";
+        tag = " LOW";
+      }
+
+      chipsHtml += `<span class="size-box-badge ${chipClass}">Size ${sz}: ${count}${tag}</span>`;
+    }
+
+    const row = document.createElement("div");
+    row.className = "stock-row";
+    row.innerHTML = `
+      <div>
+        <div class="stock-title">
+          ${item.name} &mdash; ${formatBDT(item.price)} <span>&bull; ${totalPcs} pcs (${item.tag})</span>
+        </div>
+        ${item.caption ? `<div class="stock-caption">${item.caption}</div>` : ""}
+      </div>
+      <div class="stock-right-group">
+        <div class="size-chips">${chipsHtml}</div>
+        <button type="button" class="restock-btn" onclick="restockLowSizes(${i})">+10</button>
+        <button type="button" class="remove-kit-btn" onclick="removeJersey(${i})">REMOVE</button>
+      </div>
+    `;
+    listEl.appendChild(row);
+  }
+}
+
+window.restockLowSizes = function (index) {
+  const catalog = getCatalog();
+  const sizes = catalog[index].sizes;
+  const keys = Object.keys(sizes);
+  for (let i = 0; i < keys.length; i++) {
+    if (sizes[keys[i]] <= 4) {
+      sizes[keys[i]] += 10;
+    }
+  }
+  saveCatalog(catalog);
+  renderStock();
+};
+
+window.removeJersey = function (index) {
+  const catalog = getCatalog();
+  catalog.splice(index, 1);
+  saveCatalog(catalog);
+  renderStock();
+};
 
 // Render Module 02: Orders Queue
 function renderOrders() {
@@ -155,59 +293,6 @@ window.cycleOrderStatus = function (index) {
   const nextIdx = (STATUS_CYCLE.indexOf(current) + 1) % STATUS_CYCLE.length;
   orders[index].status = STATUS_CYCLE[nextIdx];
   renderOrders();
-};
-
-// Render Module 03: Warehouse Stock
-function renderStock() {
-  const listEl = document.getElementById("warehouseStockList");
-  listEl.innerHTML = "";
-
-  for (let i = 0; i < WAREHOUSE_STOCK.length; i++) {
-    const item = WAREHOUSE_STOCK[i];
-    let totalPcs = 0;
-    let chipsHtml = "";
-
-    const sizeKeys = ["S", "M", "L", "XL", "XXL"];
-    for (let s = 0; s < sizeKeys.length; s++) {
-      const sz = sizeKeys[s];
-      const count = item.sizes[sz];
-      totalPcs += count;
-
-      let chipClass = "chip-ok";
-      let tag = "";
-      if (count === 0) {
-        chipClass = "chip-out";
-        tag = " OUT";
-      } else if (count <= 4) {
-        chipClass = "chip-low";
-        tag = " LOW";
-      }
-
-      chipsHtml += `<span class="${chipClass}">[Size ${sz}: ${count}${tag}]</span>`;
-    }
-
-    const row = document.createElement("div");
-    row.className = "stock-row";
-    row.innerHTML = `
-      <div>
-        <div class="stock-title">${item.name} (${formatBDT(item.price)}) &mdash; Total: ${totalPcs} pcs</div>
-        <div class="size-chips">${chipsHtml}</div>
-      </div>
-      <button type="button" class="restock-btn" onclick="restockLowSizes(${i})">+10 RESTOCK LOW</button>
-    `;
-    listEl.appendChild(row);
-  }
-}
-
-window.restockLowSizes = function (index) {
-  const sizes = WAREHOUSE_STOCK[index].sizes;
-  const keys = Object.keys(sizes);
-  for (let i = 0; i < keys.length; i++) {
-    if (sizes[keys[i]] <= 4) {
-      sizes[keys[i]] += 10;
-    }
-  }
-  renderStock();
 };
 
 // Render Module 04: Customer Reviews

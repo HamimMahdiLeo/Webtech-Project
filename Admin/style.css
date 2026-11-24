@@ -256,7 +256,7 @@ nav a:hover {
 .sub-heading {
   font-size: 14px;
   letter-spacing: 1.5px;
-  margin-bottom: 22px;
+  margin-bottom: 20px;
 }
 
 .cat-progress-list {
@@ -401,39 +401,154 @@ nav a:hover {
   border-color: var(--accent-lime);
 }
 
-/* MODULE 03: Warehouse Stock & Suppliers */
-.two-col-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
+/* MODULE 03: Table-Based Add New Jersey */
+.insert-table-wrap {
+  width: 100%;
+  overflow-x: auto;
 }
 
-.supplier-card .sup-tag {
-  display: block;
+.insert-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--bg-surface);
+}
+
+.insert-table th {
+  text-align: left;
+  padding: 12px 14px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
   color: var(--accent-lime);
+  background-color: var(--bg-hero);
+  border: 1px solid var(--border-subtle);
+  white-space: nowrap;
+}
+
+.insert-table td {
+  padding: 12px;
+  border: 1px solid var(--border-subtle);
+  vertical-align: middle;
+}
+
+.ts-input {
+  width: 100%;
+  min-width: 140px;
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-input);
+  color: var(--text-primary);
+  padding: 10px 11px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  outline: none;
+}
+
+.ts-input:focus {
+  border-color: var(--accent-lime);
+}
+
+.price-cell-input {
+  min-width: 95px;
+  width: 105px;
+}
+
+/* Per-Size Quantity Inputs inside Table Cell */
+.size-qty-grid {
+  display: flex;
+  gap: 6px;
+}
+
+.size-qty-box {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-subtle);
+}
+
+.size-qty-box span {
+  padding: 0 7px;
   font-size: 11px;
   font-weight: bold;
-  letter-spacing: 1.5px;
-  margin-bottom: 8px;
+  color: var(--accent-lime);
+  border-right: 1px solid var(--border-dark);
 }
 
-.supplier-card h3 {
-  font-size: 20px;
-  margin-bottom: 6px;
-}
-
-.sup-desc {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 18px;
-}
-
-.sup-meta {
-  font-size: 13px;
+.size-qty-input {
+  width: 44px;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  padding: 8px 4px;
+  font-size: 12px;
   font-weight: bold;
-  color: var(--text-secondary);
+  text-align: center;
+  outline: none;
 }
 
+.size-qty-box:focus-within {
+  border-color: var(--accent-lime);
+}
+
+/* Table Image Upload Cell */
+.table-upload-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 135px;
+  height: 42px;
+  padding: 4px 10px;
+  background-color: var(--bg-body);
+  border: 1px dashed var(--border-input);
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.table-upload-btn:hover {
+  border-color: var(--accent-lime);
+  color: var(--accent-lime);
+}
+
+#adminKitPreview {
+  display: none;
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+}
+
+.insert-table-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  gap: 16px;
+}
+
+.btn-lime-add {
+  height: 38px;
+  padding: 0 24px;
+  background-color: var(--accent-lime);
+  border: none;
+  color: #000000;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.btn-lime-add:hover {
+  opacity: 0.9;
+}
+
+.feedback-text {
+  font-size: 12px;
+  color: var(--accent-lime);
+}
+
+/* Current Stock Rows */
 .stock-wrapper {
   margin-top: 22px;
 }
@@ -441,13 +556,13 @@ nav a:hover {
 .stock-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .stock-row {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-dark);
-  padding: 16px 20px;
+  padding: 14px 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -455,40 +570,69 @@ nav a:hover {
 }
 
 .stock-title {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
-  margin-bottom: 8px;
+}
+
+.stock-title span {
+  color: var(--text-muted);
+  font-weight: normal;
+}
+
+.stock-caption {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.stock-right-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .size-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  font-size: 12px;
+  gap: 6px;
+  font-size: 11px;
   font-weight: bold;
+}
+
+.size-box-badge {
+  padding: 5px 8px;
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-subtle);
 }
 
 .chip-ok {
   color: var(--accent-lime);
+  border-color: #3a4a00;
 }
 
 .chip-low {
   color: var(--accent-gold);
+  border-color: #5c4b1f;
 }
 
 .chip-out {
   color: var(--accent-red);
+  border-color: #5c1f1f;
 }
 
-.restock-btn {
-  padding: 8px 14px;
+.restock-btn,
+.remove-kit-btn {
+  padding: 6px 12px;
   background-color: var(--bg-body);
   border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
   font-size: 11px;
   font-weight: bold;
   cursor: pointer;
   flex-shrink: 0;
+}
+
+.restock-btn {
+  color: var(--text-primary);
 }
 
 .restock-btn:hover {
@@ -496,7 +640,22 @@ nav a:hover {
   color: var(--accent-lime);
 }
 
-/* MODULE 04: Customer Reviews Moderation */
+.remove-kit-btn {
+  color: var(--text-muted);
+}
+
+.remove-kit-btn:hover {
+  border-color: var(--accent-red);
+  color: var(--accent-red);
+}
+
+/* MODULE 04 & 05 */
+.two-col-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
 .reviews-stack {
   display: flex;
   flex-direction: column;
@@ -546,7 +705,6 @@ nav a:hover {
   color: #000000;
 }
 
-/* MODULE 05: User Profiles & VIP Collectors */
 .profile-card h3 {
   font-size: 18px;
   margin-bottom: 8px;
@@ -580,10 +738,7 @@ nav a:hover {
 }
 
 @media (max-width: 960px) {
-  .console-shell {
-    grid-template-columns: 1fr;
-  }
-
+  .console-shell,
   .kpi-row,
   .sales-split,
   .two-col-grid {
@@ -594,8 +749,10 @@ nav a:hover {
     display: none;
   }
 
-  .queue-row {
+  .queue-row,
+  .stock-row {
     grid-template-columns: 1fr;
-    gap: 6px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 }

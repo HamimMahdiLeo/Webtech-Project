@@ -46,7 +46,7 @@
           1. Sales Reports
         </button>
         <button type="button" class="menu-btn" data-module="module2">
-          2. Orders (<span id="sidebarOrderCount">6</span>)
+          2. Orders (<span id="sidebarOrderCount">5</span>)
         </button>
         <button type="button" class="menu-btn" data-module="module3">
           3. Suppliers &amp; Stock
@@ -69,7 +69,6 @@
       <section id="module1" class="module-view active">
         <h2 class="module-heading">MODULE 01 &bull; SALES REPORTS &amp; REVENUE (BDT &#2547;)</h2>
 
-        <!-- 4 Top KPI Cards -->
         <div class="kpi-row">
           <div class="ts-panel kpi-box">
             <small>TOTAL REVENUE (MONTH)</small>
@@ -92,9 +91,7 @@
           </div>
         </div>
 
-        <!-- Bottom Split: Category Bars + BD Payment Channels -->
         <div class="sales-split">
-          <!-- Revenue by Jersey Category -->
           <div class="ts-panel">
             <h4 class="sub-heading">REVENUE BY JERSEY CATEGORY</h4>
 
@@ -129,7 +126,6 @@
             </div>
           </div>
 
-          <!-- BD Payment Channels -->
           <div class="ts-panel">
             <h4 class="sub-heading">BD PAYMENT CHANNELS</h4>
 
@@ -182,29 +178,88 @@
       <section id="module3" class="module-view">
         <h2 class="module-heading">MODULE 03 &bull; WAREHOUSE STOCK &amp; SUPPLIERS</h2>
 
-        <!-- Two Supplier Cards -->
-        <div class="two-col-grid">
-          <div class="ts-panel supplier-card">
-            <small class="sup-tag">SUP-01 &bull; BANGKOK, THAILAND</small>
-            <h3>Bangkok Pro Sportswear Co.</h3>
-            <p class="sup-desc">100% Thai Player Edition &amp; 3D Silicone Crests</p>
-            <p class="sup-meta">
-              Lead Time: 7&ndash;10 Days Air &nbsp;|&nbsp; Active POs: 2 &nbsp;|&nbsp; Due: <span class="text-lime">&#2547;1,45,000</span>
-            </p>
-          </div>
+        <!-- Table-Based ADD NEW JERSEY Card -->
+        <div class="ts-panel add-jersey-panel">
+          <h4 class="sub-heading">ADD NEW JERSEY</h4>
 
-          <div class="ts-panel supplier-card">
-            <small class="sup-tag">SUP-02 &bull; NARAYANGANJ, BANGLADESH</small>
-            <h3>Narayanganj Jacquard &amp; Knit Hub</h3>
-            <p class="sup-desc">National Team Fan Version &amp; Custom Sublimation</p>
-            <p class="sup-meta">
-              Lead Time: 2&ndash;3 Days Local &nbsp;|&nbsp; Active POs: 1 &nbsp;|&nbsp; Due: <span class="text-lime">&#2547;42,000</span>
-            </p>
-          </div>
+          <form id="addJerseyForm" novalidate>
+            <div class="insert-table-wrap">
+              <table class="insert-table">
+                <thead>
+                  <tr>
+                    <th>Team name</th>
+                    <th>Quantity per Size</th>
+                    <th>Price</th>
+                    <th>Caption</th>
+                    <th>Tag</th>
+                    <th>Jersey Image</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input type="text" id="adminKitName" placeholder="e.g. Brazil Home 26/27" class="ts-input">
+                    </td>
+                    <td>
+                      <div class="size-qty-grid">
+                        <div class="size-qty-box">
+                          <span>S</span>
+                          <input type="number" id="qtySizeS" min="0" value="0" class="size-qty-input">
+                        </div>
+                        <div class="size-qty-box">
+                          <span>M</span>
+                          <input type="number" id="qtySizeM" min="0" value="0" class="size-qty-input">
+                        </div>
+                        <div class="size-qty-box">
+                          <span>L</span>
+                          <input type="number" id="qtySizeL" min="0" value="0" class="size-qty-input">
+                        </div>
+                        <div class="size-qty-box">
+                          <span>XL</span>
+                          <input type="number" id="qtySizeXL" min="0" value="0" class="size-qty-input">
+                        </div>
+                        <div class="size-qty-box">
+                          <span>XXL</span>
+                          <input type="number" id="qtySizeXXL" min="0" value="0" class="size-qty-input">
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <input type="number" id="adminKitPrice" min="100" placeholder="1250" class="ts-input price-cell-input">
+                    </td>
+                    <td>
+                      <input type="text" id="adminKitCaption" placeholder="e.g. Thai Player Edition" class="ts-input">
+                    </td>
+                    <td>
+                      <select id="adminKitTag" class="ts-input">
+                        <option value="WORLD CUP COLLECTION">WORLD CUP</option>
+                        <option value="CLUB COLLECTION">CLUB KITS</option>
+                        <option value="RETRO">RETRO</option>
+                        <option value="TRENDING">TRENDING</option>
+                      </select>
+                    </td>
+                    <td>
+                      <label for="adminKitImg" class="table-upload-btn" id="adminUploadBox">
+                        <img id="adminKitPreview" src="" alt="Preview">
+                        <span id="adminUploadPlaceholder">+ Choose Image</span>
+                      </label>
+                      <input type="file" id="adminKitImg" accept="image/*" style="display: none;">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="insert-table-footer">
+              <p id="adminKitMsg" class="feedback-text"></p>
+              <button type="submit" class="btn-lime-add">+ ADD JERSEY</button>
+            </div>
+          </form>
         </div>
 
-        <!-- Warehouse Kit Size Breakdown Rows -->
+        <!-- CURRENT STOCK Card -->
         <div class="ts-panel stock-wrapper">
+          <h4 class="sub-heading">CURRENT STOCK</h4>
           <div id="warehouseStockList" class="stock-list"></div>
         </div>
       </section>
@@ -214,7 +269,6 @@
            ========================================================= -->
       <section id="module4" class="module-view">
         <h2 class="module-heading">MODULE 04 &bull; CUSTOMER REVIEWS MODERATION (4.9 &#9733;)</h2>
-
         <div id="reviewsModList" class="reviews-stack"></div>
       </section>
 
@@ -223,7 +277,6 @@
            ========================================================= -->
       <section id="module5" class="module-view">
         <h2 class="module-heading">MODULE 05 &bull; REGISTERED USER PROFILES &amp; VIP COLLECTORS</h2>
-
         <div id="vipProfilesGrid" class="two-col-grid"></div>
       </section>
 
