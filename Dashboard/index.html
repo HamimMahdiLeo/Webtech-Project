@@ -3,336 +3,358 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Threaded Stories — All Jerseys</title>
+  <title>Threaded Stories</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="image/mainlogo.webp" type="image/webp">
 </head>
 <body>
-  <!-- Top Promo Announcement Bar -->
-  <div class="top-promo-bar">
-    <div class="container">
-      <span>&#128293; <strong>ALL JERSEYS</strong> — Free Delivery across Dhaka</span>
+
+  <!-- Header -->
+  <header>
+    <h2 class="logo">THREADED<span> STORIES</span></h2>
+
+    <nav>
+      <a href="#products" id="allJerseysBtn">ALL JERSEYS</a>
+      <a href="#products" class="cat-link" data-filter="world cup">WORLD CUP</a>
+      <a href="#products" class="cat-link" data-filter="club">CLUB KITS</a>
+      <a href="#products" class="cat-link" data-filter="retro">RETRO</a>
+      <a href="#products" class="cat-link" data-filter="trending">TRENDING</a>
+    </nav>
+
+    <div class="header-right">
+      <div class="search-wrapper">
+        <input type="text" id="searchInput" placeholder="Search jerseys..." autocomplete="off">
+      </div>
+      <span class="cart-pill" id="cartBtn">
+        BAG &#2547;<span id="cartTotal">0</span> <b id="cartCount">0</b>
+      </span>
+      <a href="login.html" class="signin-link">SIGN IN</a>
+    </div>
+  </header>
+
+  <!-- Main Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <p class="season">NEW SEASON 2026/27</p>
+
+      <h1>WEAR THE <br><span>LEGACY.</span></h1>
+
+      <p>
+        Built for ninety minutes and beyond.
+        Rep your colors with our latest matchday and retro drops.
+      </p>
+
+      <a href="#products" class="shop-btn">SHOP NOW &#8595;</a>
+    </div>
+
+    <div class="hero-right">
+      <h1>TS</h1>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products" id="products">
+
+    <h2>PRODUCTS</h2>
+    <p class="items" id="itemCount">15 items</p>
+
+    <div class="product-container" id="catalog">
+
+      <!-- Card 1 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Jersey/brazil_home.webp" alt="Brazil Home Kit 2026/27" class="image-p">
+          <span class="preview-badge">QUICK PREVIEW</span>
+        </div>
+        <div class="product-info">
+          <small class="edition-tag">WORLD CUP COLLECTION</small>
+          <h3 class="product-title">Brazil Home Kit 2026/27</h3>
+          <p class="price-row">&#2547;<span class="product-price">1250</span></p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Jersey/brazil_away.webp" alt="Brazil Away Kit 2026/27" class="image-p">
+          <span class="preview-badge">QUICK PREVIEW</span>
+        </div>
+        <div class="product-info">
+          <small class="edition-tag">WORLD CUP COLLECTION</small>
+          <h3 class="product-title">Brazil Away Kit 2026/27</h3>
+          <p class="price-row">&#2547;<span class="product-price">1250</span></p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Jersey/argentina_home.webp" alt="Argentina Home Kit 2026/27" class="image-p">
+          <span class="preview-badge">QUICK PREVIEW</span>
+        </div>
+        <div class="product-info">
+          <small class="edition-tag">WORLD CUP COLLECTION</small>
+          <h3 class="product-title">Argentina Home Kit 2026/27</h3>
+          <p class="price-row">&#2547;<span class="product-price">1250</span></p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Jersey/argentina_away.webp" alt="Argentina Away Kit 2026/27" class="image-p">
+          <span class="preview-badge">QUICK PREVIEW</span>
+        </div>
+        <div class="product-info">
+          <small class="edition-tag">WORLD CUP COLLECTION</small>
+          <h3 class="product-title">Argentina Away Kit 2026/27</h3>
+          <p class="price-row">&#2547;<span class="product-price">4500</span></p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Jersey/germ_home.webp" alt="Germany Home Kit 2026/27" class="image-p">
+          <span class="preview-badge">QUICK PREVIEW</span>
+        </div>
+        <div class="product-info">
+          <small class="edition-tag">WORLD CUP COLLECTION</small>
+          <h3 class="product-title">Germany Home Kit 2026/27</h3>
+          <p class="price-row">&#2547;<span class="product-price">1250</span></p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Jersey/germ_away.webp" alt="Germany Away Kit 2026/27" class="image-p">
+          <span class="preview-badge">QUICK PREVIEW</span>
+        </div>
+        <div class="product-info">
+          <small class="edition-tag">WORLD CUP COLLECTION</small>
+          <h3 class="product-title">Germany Away Kit 2026/27</h3>
+          <p class="price-row">&#2547;<span class="product-price">1250</span></p>
+        </div>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Jersey/acmilan_home.webp" alt="AC Milan Home Kit 2026/27" class="image-p">
+          <span class="preview-badge">QUICK PREVIEW</span>
+        </div>
+        <div class="product-info">
+          <small class="edition-tag">CLUB COLLECTION</small>
+          <h3 class="product-title">AC Milan Home Kit 2026/27</h3>
+          <p class="price-row">&#2547;<span class="product-price">1100</span></p>
+        </div>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Jersey/bd_home.webp" alt="Bangladesh Latest Home Kit" class="image-p">
+          <span class="preview-badge">QUICK PREVIEW</span>
+        </div>
+        <div class="product-info">
+          <small class="edition-tag">TRENDING</small>
+          <h3 class="product-title">Bangladesh Latest Home Kit</h3>
+          <p class="price-row">&#2547;<span class="product-price">1000</span></p>
+        </div>
+      </div>
+
+      <!-- Card 9 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Jersey/bd_away.webp" alt="Bangladesh Latest Away Kit" class="image-p">
+          <span class="preview-badge">QUICK PREVIEW</span>
+        </div>
+        <div class="product-info">
+          <small class="edition-tag">TRENDING</small>
+          <h3 class="product-title">Bangladesh Latest Away Kit</h3>
+          <p class="price-row">&#2547;<span class="product-price">1000</span></p>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Jersey/england_home_retro.webp" alt="England Home Retro Kit 1998" class="image-p">
+          <span class="preview-badge">QUICK PREVIEW</span>
+        </div>
+        <div class="product-info">
+          <small class="edition-tag">RETRO</small>
+          <h3 class="product-title">England Home Retro Kit 1998</h3>
+          <p class="price-row">&#2547;<span class="product-price">1389</span></p>
+        </div>
+      </div>
+
+      <!-- Card 11 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Jersey/manutd_home.webp" alt="Manchester United Home Kit 2026/27" class="image-p">
+          <span class="preview-badge">QUICK PREVIEW</span>
+        </div>
+        <div class="product-info">
+          <small class="edition-tag">CLUB COLLECTION</small>
+          <h3 class="product-title">Manchester United Home Kit 2026/27</h3>
+          <p class="price-row">&#2547;<span class="product-price">1000</span></p>
+        </div>
+      </div>
+
+      <!-- Card 12 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Jersey/manutd_away.webp" alt="Manchester United Away Kit 2026/27" class="image-p">
+          <span class="preview-badge">QUICK PREVIEW</span>
+        </div>
+        <div class="product-info">
+          <small class="edition-tag">CLUB COLLECTION</small>
+          <h3 class="product-title">Manchester United Away Kit 2026/27</h3>
+          <p class="price-row">&#2547;<span class="product-price">1000</span></p>
+        </div>
+      </div>
+
+      <!-- Card 13 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Jersey/dortmund_home.webp" alt="Borussia Dortmund Home Kit 2026/27" class="image-p">
+          <span class="preview-badge">QUICK PREVIEW</span>
+        </div>
+        <div class="product-info">
+          <small class="edition-tag">CLUB COLLECTION</small>
+          <h3 class="product-title">Borussia Dortmund Home Kit 2026/27</h3>
+          <p class="price-row">&#2547;<span class="product-price">1100</span></p>
+        </div>
+      </div>
+
+      <!-- Card 14 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Jersey/chealsea_away.webp" alt="Chelsea Away Kit 2026/27" class="image-p">
+          <span class="preview-badge">QUICK PREVIEW</span>
+        </div>
+        <div class="product-info">
+          <small class="edition-tag">CLUB COLLECTION</small>
+          <h3 class="product-title">Chelsea Away Kit 2026/27</h3>
+          <p class="price-row">&#2547;<span class="product-price">1100</span></p>
+        </div>
+      </div>
+
+      <!-- Card 15 -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Jersey/chelsea_home.webp" alt="Chelsea Home Kit 2026/27" class="image-p">
+          <span class="preview-badge">QUICK PREVIEW</span>
+        </div>
+        <div class="product-info">
+          <small class="edition-tag">CLUB COLLECTION</small>
+          <h3 class="product-title">Chelsea Home Kit 2026/27</h3>
+          <p class="price-row">&#2547;<span class="product-price">1100</span></p>
+        </div>
+      </div>
+
+      <!-- Empty Search Message -->
+      <div id="emptyState" class="empty-state">
+        <h3>No jerseys matched your search</h3>
+        <p>Try searching for Brazil, Argentina, Bangladesh, Club, or Retro.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Product Detail Modal UI (Opens when clicking a product) -->
+  <div id="productModal" class="modal-overlay">
+    <div class="modal-box">
+      <button type="button" id="closeModalBtn" class="close-btn">&times;</button>
+
+      <div class="modal-image">
+        <img id="modalImg" src="" alt="Jersey Preview">
+      </div>
+
+      <div class="modal-details">
+        <small id="modalEdition" class="edition-tag"></small>
+        <h2 id="modalTitle"></h2>
+
+        <div class="modal-price-row">
+          <p class="modal-price">&#2547;<span id="modalPrice">0</span></p>
+          <button type="button" id="modalQuickAddBtn" class="quick-add-btn">+</button>
+        </div>
+
+        <div class="size-selector">
+          <span>Size:</span>
+          <button type="button" class="size-btn">S</button>
+          <button type="button" class="size-btn selected">M</button>
+          <button type="button" class="size-btn">L</button>
+          <button type="button" class="size-btn">XL</button>
+          <button type="button" class="size-btn">XXL</button>
+        </div>
+
+        <div class="modal-action-row">
+          <div class="qty-control">
+            <button type="button" id="modalMinusBtn" class="qty-btn">-</button>
+            <span id="modalQty" class="qty-value">1</span>
+            <button type="button" id="modalPlusBtn" class="qty-btn">+</button>
+          </div>
+          <button type="button" id="modalAddBtn" class="add-to-cart-btn">ADD TO BAG</button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Main Header & Navigation -->
-  <header class="site-header">
-    <div class="container header-top">
-      <a href="#" class="brand">
-        <div class="brand-logo">
-          <img src="Main Logo.jpg" alt="Threaded Stories Logo">
-        </div>
-        <span class="brand-name">THREADED STORIES</span>
-      </a>
-
-      <div class="search-wrapper">
-        <span class="search-icon">&#128269;</span>
-        <input type="text" id="searchInput" placeholder="Search 2026/27 clubs, national teams &amp; retro kits..." autocomplete="off">
-      </div>
-
-      <button type="button" class="cart-pill" id="cartBtn">
-        Cart (<span id="cartCount">0</span>)
-      </button>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-about">
+      <h2>THREADED<span> STORIES</span></h2>
+      <ul class="footer-contact">
+        <li>
+          <a href="https://www.facebook.com/profile.php?id=61566366863820" target="_blank" rel="noopener noreferrer">
+            <i class="w-icon-facebook"></i> Threaded Stories
+          </a>
+        </li>
+        <li>
+          <a href="tel:+8801420420420">
+            <i class="w-icon-phone"></i> +880 1420 420 420
+          </a>
+        </li>
+        <li>
+          <a href="mailto:hamimmahdi2602@gmail.com">
+            <i class="w-icon-envelop-closed"></i> hamimmahdi2602@gmail.com
+          </a>
+        </li>
+      </ul>
     </div>
 
-    <nav class="container header-nav">
-      <button type="button" class="nav-pill active" id="allJerseysBtn">&#128293; All Jerseys</button>
-      <a href="#custom-studio" class="nav-pill secondary">&#10024; Custom Print Studio</a>
-    </nav>
-  </header>
-
-  <!-- Main Content -->
-  <main class="container main-content">
-    <!-- Hero Banner -->
-    <section class="hero-banner">
-      <span class="hero-badge">2026/27 NEW SEASON DROP</span>
-      <h1>ALL TRENDING JERSEYS IN BANGLADESH</h1>
-      <p>Authentic Player Edition &amp; Fan Version kits &bull; Custom Name &amp; Number (+&#2547;250) &bull; Fast COD</p>
-    </section>
-
-    <!-- Jersey Catalog Grid -->
-    <div id="catalog" class="product-grid">
-
-      <!-- Card 1 -->
-      <article class="product-card" data-price="1050">
-        <div class="jersey-preview light-canvas">
-          <img src="https://shop.realmadrid.com/cdn/shop/files/RMCFMZ0941_01.jpg?v=1779891681" alt="Real Madrid 26/27 Home Kit">
-        </div>
-        <div class="card-body">
-          <div class="edition-tag">LA LIGA &bull; ADIDAS PLAYER EDITION</div>
-          <h3 class="product-title">Real Madrid 26/27 Home Kit</h3>
-          <div class="price-row"><span class="product-price">&#2547;1,050</span></div>
-          <div class="size-selector">
-            <span>Size:</span>
-            <button type="button" class="size-btn">S</button>
-            <button type="button" class="size-btn selected">M</button>
-            <button type="button" class="size-btn">L</button>
-            <button type="button" class="size-btn">XL</button>
-            <button type="button" class="size-btn">XXL</button>
-          </div>
-          <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
-        </div>
-      </article>
-
-      <!-- Card 2 -->
-      <article class="product-card" data-price="1050">
-        <div class="jersey-preview light-canvas">
-          <img src="https://store.fcbarcelona.com/cdn/shop/files/FCB_Primera_masculino_Stadium_26-27_frontal_Lustig_b9b52f62-4b00-4e14-8c09-4bce8d266e06.png?v=1784119975&width=3840" alt="FC Barcelona 26/27 Home Kit">
-        </div>
-        <div class="card-body">
-          <div class="edition-tag">LA LIGA &bull; NIKE PLAYER EDITION</div>
-          <h3 class="product-title">FC Barcelona 26/27 Home Kit</h3>
-          <div class="price-row"><span class="product-price">&#2547;1,050</span></div>
-          <div class="size-selector">
-            <span>Size:</span>
-            <button type="button" class="size-btn">S</button>
-            <button type="button" class="size-btn selected">M</button>
-            <button type="button" class="size-btn">L</button>
-            <button type="button" class="size-btn">XL</button>
-            <button type="button" class="size-btn">XXL</button>
-          </div>
-          <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
-        </div>
-      </article>
-
-      <!-- Card 3 -->
-      <article class="product-card" data-price="990">
-        <div class="jersey-preview light-canvas">
-          <img src="https://assets.adidas.com/images/w_1880,f_auto,q_auto/1dd8c4b45da84663b65eaa7d2c27cb08_9366/JZ3168_01_laydown.jpg" alt="Arsenal 26/27 North London Kit">
-        </div>
-        <div class="card-body">
-          <div class="edition-tag">PREMIER LEAGUE &bull; ADIDAS ISSUE</div>
-          <h3 class="product-title">Arsenal 26/27 North London Kit</h3>
-          <div class="price-row"><span class="product-price">&#2547;990</span></div>
-          <div class="size-selector">
-            <span>Size:</span>
-            <button type="button" class="size-btn">S</button>
-            <button type="button" class="size-btn selected">M</button>
-            <button type="button" class="size-btn">L</button>
-            <button type="button" class="size-btn">XL</button>
-            <button type="button" class="size-btn">XXL</button>
-          </div>
-          <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
-        </div>
-      </article>
-
-      <!-- Card 4 -->
-      <article class="product-card" data-price="890">
-        <div class="jersey-preview light-canvas">
-          <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/775075/01/fnd/PNA/fmt/png/Manchester-City-24/25-Home-Jersey-Men" alt="Man City 26/27 Sky Blue Home">
-        </div>
-        <div class="card-body">
-          <div class="edition-tag">PREMIER LEAGUE &bull; PUMA FAN VERSION</div>
-          <h3 class="product-title">Man City 26/27 Sky Blue Home</h3>
-          <div class="price-row"><span class="product-price">&#2547;890</span></div>
-          <div class="size-selector">
-            <span>Size:</span>
-            <button type="button" class="size-btn">S</button>
-            <button type="button" class="size-btn selected">M</button>
-            <button type="button" class="size-btn">L</button>
-            <button type="button" class="size-btn">XL</button>
-            <button type="button" class="size-btn">XXL</button>
-          </div>
-          <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
-        </div>
-      </article>
-
-      <!-- Card 5 -->
-      <article class="product-card" data-price="990">
-        <div class="jersey-preview mint-canvas">
-          <img src="https://admin.jerseyfreakbd.com/public/uploads/all/uhNtFpbYClnVrBTHyJEStSNeX1qeddwSYX1klo2L.png" alt="Bangladesh 26/27 Home Kit">
-        </div>
-        <div class="card-body">
-          <div class="edition-tag">BFF OFFICIAL &bull; PLAYER EDITION</div>
-          <h3 class="product-title">Bangladesh 26/27 Home Kit</h3>
-          <div class="price-row"><span class="product-price">&#2547;990</span></div>
-          <div class="size-selector">
-            <span>Size:</span>
-            <button type="button" class="size-btn">S</button>
-            <button type="button" class="size-btn selected">M</button>
-            <button type="button" class="size-btn">L</button>
-            <button type="button" class="size-btn">XL</button>
-            <button type="button" class="size-btn">XXL</button>
-          </div>
-          <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
-        </div>
-      </article>
-
-      <!-- Card 6 -->
-      <article class="product-card" data-price="990">
-        <div class="jersey-preview cream-canvas">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiHBr6hiBiEpC5rutaBRZlVG74FpkLXZwNxVq0N3FATOl24Q9-h8ZZd4XS&s=10" alt="Brazil 26/27 Seleção Home Kit">
-        </div>
-        <div class="card-body">
-          <div class="edition-tag">CONMEBOL &bull; NIKE 5-STAR EDITION</div>
-          <h3 class="product-title">Brazil 26/27 Sele&ccedil;&atilde;o Home Kit</h3>
-          <div class="price-row"><span class="product-price">&#2547;990</span></div>
-          <div class="size-selector">
-            <span>Size:</span>
-            <button type="button" class="size-btn">S</button>
-            <button type="button" class="size-btn selected">M</button>
-            <button type="button" class="size-btn">L</button>
-            <button type="button" class="size-btn">XL</button>
-            <button type="button" class="size-btn">XXL</button>
-          </div>
-          <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
-        </div>
-      </article>
-
-      <!-- Card 7 -->
-      <article class="product-card" data-price="990">
-        <div class="jersey-preview light-canvas">
-          <img src="https://assets.adidas.com/images/w_500,f_auto,q_auto/6964bd189ef848c9bbd90632e339f63d_9366/Spain_26_Home_Winner_Jersey_Red_KF4418_01_laydown.jpg" alt="Spain 26/27 La Roja Home Kit">
-        </div>
-        <div class="card-body">
-          <div class="edition-tag">UEFA EURO &bull; ADIDAS PLAYER EDITION</div>
-          <h3 class="product-title">Spain 26/27 La Roja Home Kit</h3>
-          <div class="price-row"><span class="product-price">&#2547;990</span></div>
-          <div class="size-selector">
-            <span>Size:</span>
-            <button type="button" class="size-btn">S</button>
-            <button type="button" class="size-btn selected">M</button>
-            <button type="button" class="size-btn">L</button>
-            <button type="button" class="size-btn">XL</button>
-            <button type="button" class="size-btn">XXL</button>
-          </div>
-          <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
-        </div>
-      </article>
-
-      <!-- Card 8 -->
-      <article class="product-card" data-price="990">
-        <div class="jersey-preview sky-canvas">
-          <img src="https://www.foot-sport.com/cdn/shop/files/Maillot-Argentine-Domicile-2026-2027-Femme-1.jpg?v=1778809975&width=1500" alt="Argentina 26/27 Albiceleste">
-        </div>
-        <div class="card-body">
-          <div class="edition-tag">WORLD CHAMP &bull; ADIDAS 3-STAR KIT</div>
-          <h3 class="product-title">Argentina 26/27 Albiceleste</h3>
-          <div class="price-row"><span class="product-price">&#2547;990</span></div>
-          <div class="size-selector">
-            <span>Size:</span>
-            <button type="button" class="size-btn">S</button>
-            <button type="button" class="size-btn selected">M</button>
-            <button type="button" class="size-btn">L</button>
-            <button type="button" class="size-btn">XL</button>
-            <button type="button" class="size-btn">XXL</button>
-          </div>
-          <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
-        </div>
-      </article>
-
-      <!-- Card 9 -->
-      <article class="product-card" data-price="1250">
-        <div class="jersey-preview light-canvas">
-          <img src="https://images.footballfanatics.com/paris-saint-germain/psg-x-jordan-wings-logo-t-shirt-black_ss5_p-203142589+pv-1+u-ud9f603shbf7puho4amq+v-yrg3rziveskh1txhmcku.png?_hv=2&w=1018" alt="PSG Jordan Wings Black Edition">
-        </div>
-        <div class="card-body">
-          <div class="edition-tag">FULL SLEEVE &bull; JORDAN X PSG SPECIAL</div>
-          <h3 class="product-title">PSG Jordan Wings Black Edition</h3>
-          <div class="price-row"><span class="product-price">&#2547;1,250</span></div>
-          <div class="size-selector">
-            <span>Size:</span>
-            <button type="button" class="size-btn">S</button>
-            <button type="button" class="size-btn selected">M</button>
-            <button type="button" class="size-btn">L</button>
-            <button type="button" class="size-btn">XL</button>
-            <button type="button" class="size-btn">XXL</button>
-          </div>
-          <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
-        </div>
-      </article>
-
-      <!-- Card 10 -->
-      <article class="product-card" data-price="1250">
-        <div class="jersey-preview light-canvas">
-          <img src="https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa,w_600,h_600/global/774949/01/fnd/PNA/fmt/png/AC-Milan-24/25-Home-Jersey-Men" alt="AC Milan 2006/07 Kaká #22">
-        </div>
-        <div class="card-body">
-          <div class="edition-tag">2006/07 UCL FINAL &bull; RETRO</div>
-          <h3 class="product-title">AC Milan 2006/07 Kak&aacute; #22</h3>
-          <div class="price-row"><span class="product-price">&#2547;1,250</span></div>
-          <div class="size-selector">
-            <span>Size:</span>
-            <button type="button" class="size-btn">S</button>
-            <button type="button" class="size-btn selected">M</button>
-            <button type="button" class="size-btn">L</button>
-            <button type="button" class="size-btn">XL</button>
-            <button type="button" class="size-btn">XXL</button>
-          </div>
-          <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
-        </div>
-      </article>
-
-      <!-- Card 11 -->
-      <article class="product-card" data-price="1200">
-        <div class="jersey-preview cream-canvas">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3-hFR6BpuX1NnIm-UZKaJddp2KfxCClJazM0RjoeTd-v5g0RgKJ4TUUI&s=10" alt="Brazil 2002 World Cup Home">
-        </div>
-        <div class="card-body">
-          <div class="edition-tag">2002 WORLD CUP &bull; NIKE REISSUE</div>
-          <h3 class="product-title">Brazil 2002 World Cup Home</h3>
-          <div class="price-row"><span class="product-price">&#2547;1,200</span></div>
-          <div class="size-selector">
-            <span>Size:</span>
-            <button type="button" class="size-btn">S</button>
-            <button type="button" class="size-btn selected">M</button>
-            <button type="button" class="size-btn">L</button>
-            <button type="button" class="size-btn">XL</button>
-            <button type="button" class="size-btn">XXL</button>
-          </div>
-          <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
-        </div>
-      </article>
-
-      <!-- Card 12 -->
-      <article class="product-card" data-price="1200">
-        <div class="jersey-preview sky-canvas">
-          <img src="https://i.etsystatic.com/67633548/r/il/6006eb/8480841505/il_fullxfull.8480841505_97rr.jpg" alt="Argentina 1986 Maradona #10">
-        </div>
-        <div class="card-body">
-          <div class="edition-tag">1986 MEXICO &bull; ADIDAS ORIGINALS</div>
-          <h3 class="product-title">Argentina 1986 Maradona #10</h3>
-          <div class="price-row"><span class="product-price">&#2547;1,200</span></div>
-          <div class="size-selector">
-            <span>Size:</span>
-            <button type="button" class="size-btn">S</button>
-            <button type="button" class="size-btn selected">M</button>
-            <button type="button" class="size-btn">L</button>
-            <button type="button" class="size-btn">XL</button>
-            <button type="button" class="size-btn">XXL</button>
-          </div>
-          <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
-        </div>
-      </article>
-
-      <!-- Card 13 -->
-      <article class="product-card" data-price="1290">
-        <div class="jersey-preview light-canvas">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTy0ACsB1IpTJc7iuPwH6HUg7hK-qCcmBwN7HPbj6jjd1IzEP4ACiX01Joy&s=10" alt="Man United 07/08 UCL Final">
-        </div>
-        <div class="card-body">
-          <div class="edition-tag">2007/08 MOSCOW &bull; RETRO EDITION</div>
-          <h3 class="product-title">Man United 07/08 UCL Final</h3>
-          <div class="price-row"><span class="product-price">&#2547;1,290</span></div>
-          <div class="size-selector">
-            <span>Size:</span>
-            <button type="button" class="size-btn">S</button>
-            <button type="button" class="size-btn selected">M</button>
-            <button type="button" class="size-btn">L</button>
-            <button type="button" class="size-btn">XL</button>
-            <button type="button" class="size-btn">XXL</button>
-          </div>
-          <button type="button" class="btn-primary add-to-cart-btn">Add to Cart</button>
-        </div>
-      </article>
-
-      <!-- Empty Search Message -->
-      <div id="emptyState" class="empty-state hidden">
-        <h3>No jerseys matched your search</h3>
-        <p>Try searching for Real Madrid, Bangladesh, Brazil, or Retro.</p>
-      </div>
-
+    <div>
+      <h4>JERSEYS</h4>
+      <p>World Cup Kits</p>
+      <p>Club Kits</p>
+      <p>Retro Editions</p>
+      <p>New Arrivals</p>
     </div>
-  </main>
+
+    <div>
+      <h4>SUPPORT</h4>
+      <p>Help Center</p>
+      <p>Returns</p>
+      <p>Size Guide</p>
+      <p>Track Order</p>
+    </div>
+
+    <div>
+      <h4>COMPANY</h4>
+      <p>About</p>
+      <p>Careers</p>
+      <p>Sustainability</p>
+      <p>Admin</p>
+    </div>
+  </footer>
+
+  <div class="copyright">
+    &copy; 2026 THREADED STORIES. All rights reserved.
+    <span>Bangladesh &middot; EN</span>
+  </div>
 
   <script src="script.js"></script>
 </body>
