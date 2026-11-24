@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threaded Stories — Bag &amp; Checkout</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="../Dashboard/mainlogo.webp" type="image/webp">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <a href="../Dashboard/index.html" class="logo">THREADED<span> STORIES</span></a>
+
+    <nav>
+      <a href="../Dashboard/index.html#products">ALL JERSEYS</a>
+      <a href="../Dashboard/index.html#products">WORLD CUP</a>
+      <a href="../Dashboard/index.html#products">CLUB KITS</a>
+      <a href="../Dashboard/index.html#products">RETRO</a>
+      <a href="../Dashboard/index.html#products">TRENDING</a>
+      <a href="../Custom Jersey Studio/index.html">CUSTOM STUDIO</a>
+    </nav>
+
+    <div class="header-right">
+      <a href="index.html" class="cart-pill active-pill">
+        BAG &#2547;<span id="navCartTotal">0</span> <b id="navCartCount">0</b>
+      </a>
+      <a href="../Dashboard/login.html" class="signin-link">SIGN IN</a>
+    </div>
+  </header>
+
+  <!-- Main Cart & Checkout Workspace -->
+  <main class="bag-main">
+
+    <div class="bag-topbar">
+      <div>
+        <p class="bag-badge">MATCHDAY BAG &amp; EXPRESS CHECKOUT</p>
+        <h1>YOUR BAG</h1>
+      </div>
+      <div class="bag-topbar-actions">
+        <span class="bag-count-label" id="bagItemsLabel">0 ITEMS</span>
+        <button type="button" id="clearBagBtn" class="clear-btn">CLEAR BAG</button>
+      </div>
+    </div>
+
+    <!-- Empty Bag State -->
+    <section id="emptyBagView" class="empty-bag-box">
+      <h2>YOUR BAG IS CURRENTLY EMPTY</h2>
+      <p>Browse our 2026/27 national &amp; club kits or design a custom squad kit in the studio.</p>
+      <div class="empty-bag-links">
+        <a href="../Dashboard/index.html#products" class="btn-lime">BROWSE JERSEYS</a>
+        <a href="../Custom Jersey Studio/index.html" class="btn-outline">CUSTOM STUDIO</a>
+      </div>
+    </section>
+
+    <!-- Active Bag + Express Checkout Grid -->
+    <section id="activeBagView" class="bag-grid">
+
+      <!-- Left Column: Bag Items & Custom Print Option -->
+      <div class="bag-items-column">
+        <div id="bagItemsList" class="bag-items-list"></div>
+
+        <!-- Promo Code Bar -->
+        <div class="promo-card">
+          <label for="promoInput">PROMO CODE (TRY: <span>THREADED10</span>)</label>
+          <div class="promo-row">
+            <input type="text" id="promoInput" placeholder="Enter promo code...">
+            <button type="button" id="applyPromoBtn" class="btn-outline-sm">APPLY</button>
+          </div>
+          <p id="promoFeedback" class="promo-feedback"></p>
+        </div>
+      </div>
+
+      <!-- Right Column: Summary & Express Bangladesh Checkout -->
+      <aside class="checkout-column">
+
+        <!-- Step 1: Order Summary Card -->
+        <div id="summaryCard" class="panel-box">
+          <div class="panel-head">
+            <h3>ORDER SUMMARY</h3>
+            <span class="currency-tag">BDT (&#2547;)</span>
+          </div>
+
+          <!-- Free Dhaka Delivery Progress -->
+          <div class="shipping-meter">
+            <p id="shippingMeterText">Add &#2547;2,500 more for FREE Inside Dhaka delivery</p>
+            <div class="meter-track">
+              <div id="shippingMeterFill" class="meter-fill"></div>
+            </div>
+          </div>
+
+          <div class="zone-switch">
+            <button type="button" class="zone-tab active" data-zone="dhaka">INSIDE DHAKA (&#2547;70)</button>
+            <button type="button" class="zone-tab" data-zone="outside">OUTSIDE DHAKA (&#2547;130)</button>
+          </div>
+
+          <div class="totals-list">
+            <div class="total-line">
+              <span>Jerseys Subtotal</span>
+              <span id="subtotalVal">&#2547;0</span>
+            </div>
+            <div class="total-line">
+              <span>Name &amp; Number Print</span>
+              <span id="printTotalVal">&#2547;0</span>
+            </div>
+            <div class="total-line" id="discountRow" style="display: none;">
+              <span>Promo Discount (10%)</span>
+              <span id="discountVal" class="text-lime">-&#2547;0</span>
+            </div>
+            <div class="total-line">
+              <span>Delivery Charge</span>
+              <span id="deliveryVal">&#2547;70</span>
+            </div>
+            <div class="line-divider"></div>
+            <div class="total-line grand-total">
+              <span>TOTAL PAYABLE</span>
+              <span id="grandTotalVal" class="text-lime">&#2547;0</span>
+            </div>
+          </div>
+
+          <button type="button" id="openCheckoutBtn" class="btn-lime-full">PROCEED TO CHECKOUT</button>
+          <a href="../Dashboard/index.html#products" class="continue-link">&#8592; CONTINUE SHOPPING</a>
+        </div>
+
+        <!-- Step 2: Express Checkout Form -->
+        <div id="checkoutCard" class="panel-box" style="display: none;">
+          <div class="panel-head">
+            <h3>EXPRESS CHECKOUT</h3>
+            <button type="button" id="backToSummaryBtn" class="text-btn">&#8592; SUMMARY</button>
+          </div>
+
+          <form id="checkoutForm" novalidate>
+            <div class="field-group">
+              <label for="buyerName">Full Name</label>
+              <input type="text" id="buyerName" placeholder="e.g. Hamim Mehdi Leo">
+              <span class="error" id="nameError"></span>
+            </div>
+
+            <div class="field-group">
+              <label for="buyerPhone">Bangladesh Mobile Number</label>
+              <input type="tel" id="buyerPhone" placeholder="01XXXXXXXXX">
+              <span class="error" id="phoneError"></span>
+            </div>
+
+            <div class="field-group">
+              <label for="buyerAddress">Full Delivery Address</label>
+              <textarea id="buyerAddress" rows="3" placeholder="House, Road, Area, District"></textarea>
+              <span class="error" id="addressError"></span>
+            </div>
+
+            <div class="field-group">
+              <label>Payment Method</label>
+              <div class="payment-options">
+                <button type="button" class="pay-option active" data-pay="Cash on Delivery">CASH ON DELIVERY</button>
+                <button type="button" class="pay-option" data-pay="bKash">BKASH</button>
+                <button type="button" class="pay-option" data-pay="Nagad">NAGAD</button>
+              </div>
+            </div>
+
+            <div class="checkout-payable-bar">
+              <span>TOTAL PAYABLE</span>
+              <strong id="checkoutPayableVal" class="text-lime">&#2547;0</strong>
+            </div>
+
+            <button type="submit" class="btn-lime-full">PLACE ORDER</button>
+          </form>
+        </div>
+
+      </aside>
+    </section>
+  </main>
+
+  <!-- Order Confirmation Modal -->
+  <div id="orderConfirmModal" class="modal-overlay">
+    <div class="confirm-box">
+      <p class="bag-badge">ORDER CONFIRMED</p>
+      <h2 id="orderRefCode">#TS-2026</h2>
+      <p id="orderConfirmDetails"></p>
+      <a href="../Dashboard/index.html" class="btn-lime-full" style="display: block; text-align: center; text-decoration: none;">
+        BACK TO STOREFRONT
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-about">
+      <h2>THREADED<span> STORIES</span></h2>
+      <ul class="footer-contact">
+        <li>
+          <a href="https://www.facebook.com/profile.php?id=61566366863820" target="_blank" rel="noopener noreferrer">
+            Threaded Stories
+          </a>
+        </li>
+        <li><a href="tel:+8801420420420">+880 1420 420 420</a></li>
+        <li><a href="mailto:hamimmahdi2602@gmail.com">hamimmahdi2602@gmail.com</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>JERSEYS</h4>
+      <p>World Cup Kits</p>
+      <p>Club Kits</p>
+      <p>Retro Editions</p>
+      <p>Custom Team Orders</p>
+    </div>
+
+    <div>
+      <h4>SUPPORT</h4>
+      <p>Dhaka Express Delivery</p>
+      <p>Size Guide</p>
+      <p>Returns &amp; Exchange</p>
+    </div>
+  </footer>
+
+  <div class="copyright">
+    &copy; 2026 THREADED STORIES. All rights reserved.
+    <span>Bangladesh &middot; BDT (&#2547;)</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

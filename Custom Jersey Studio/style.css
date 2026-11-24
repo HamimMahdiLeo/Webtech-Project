@@ -75,6 +75,37 @@ nav a.active-link {
   color: var(--accent-lime);
 }
 
+.header-right {
+  width: 378px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.cart-pill {
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.cart-pill:hover {
+  color: var(--accent-lime);
+}
+
+.header-right b {
+  background-color: var(--accent-lime);
+  color: #000000;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  border-radius: 50%;
+  margin-left: 4px;
+}
+
 .signin-link {
   padding-top: 10px;
   padding-right: 20px;
@@ -327,6 +358,10 @@ nav a.active-link {
 
   nav {
     display: none;
+  }
+
+  .header-right {
+    width: auto;
   }
 
   .studio-card {
