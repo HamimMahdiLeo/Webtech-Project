@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Threaded Stories — Custom Jersey Studio</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="../Dashboard/image/mainlogo.webp" type="image/webp">
+  <link rel="icon" href="../Dashboard/mainlogo.webp" type="image/webp">
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- Top Storefront Header -->
   <header>
-    <h2 class="logo">THREADED<span> STORIES</span></h2>
+    <h2 class="logo"><a href="../Dashboard/index.html">THREADED<span> STORIES</span></a></h2>
 
     <nav>
       <a href="../Dashboard/index.html#products">ALL JERSEYS</a>
@@ -19,7 +19,7 @@
       <a href="../Dashboard/index.html#products">CLUB KITS</a>
       <a href="../Dashboard/index.html#products">RETRO</a>
       <a href="../Dashboard/index.html#products">TRENDING</a>
-      <a href="index.html" class="active-link">CUSTOM STUDIO</a>
+      <a href="index.html" class="active-nav">CUSTOM STUDIO</a>
     </nav>
 
     <div class="header-right">
@@ -27,82 +27,154 @@
     </div>
   </header>
 
-  <!-- Main Custom Studio Section -->
-  <main class="studio-main">
-    <section class="studio-card">
+  <!-- Main Custom Jersey Studio Container -->
+  <main class="studio-wrapper">
+    <div class="studio-card">
 
-      <div class="studio-header">
-        <p class="studio-badge">CUSTOM JERSEY STUDIO</p>
-        <h1>CUSTOM JERSEY DESIGN</h1>
-        <p class="studio-subtitle">Upload your design</p>
-      </div>
+      <small class="studio-eyebrow">CUSTOM JERSEY STUDIO</small>
+      <h1 class="studio-title">CUSTOM JERSEY DESIGN</h1>
+      <p class="studio-subtitle">Upload your design &bull; &#2547;1,150 per kit (Minimum 8 pieces)</p>
 
-      <form id="customForm" novalidate>
-        <div class="studio-grid">
+      <form id="customStudioForm" novalidate>
 
-          <!-- Left Column: Design Upload Box -->
-          <div class="upload-column">
-            <label for="designUpload" id="uploadBox" class="upload-box">
-              <img id="designPreview" src="" alt="Uploaded Jersey Design Preview">
-              <span id="uploadPlaceholder">Upload here</span>
-            </label>
-            <input type="file" id="designUpload" accept="image/*" class="file-input">
-            <span class="error" id="uploadError"></span>
+        <!-- Top Two Inputs: Jersey Amount & Team Name -->
+        <div class="top-meta-grid">
+          <div class="field-block">
+            <label for="jerseyAmount">Enter Jersey Amount (Minimum 8 pieces)</label>
+            <input type="number" id="jerseyAmount" min="8" placeholder="e.g. 12" class="ts-input">
           </div>
 
-          <!-- Right Column: Order Form -->
-          <div class="form-column">
-            <div class="form-group">
-              <label for="jerseyAmount">Enter Jersey Amount (Minimum 8 pieces)</label>
-              <input type="number" id="jerseyAmount" min="8" placeholder="e.g. 12">
-              <span class="error" id="amountError"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="teamName">Team name</label>
-              <input type="text" id="teamName" placeholder="Enter your team name">
-              <span class="error" id="teamError"></span>
-            </div>
-
-            <div class="form-group">
-              <label for="playerList">Player name with squad number and jersey size</label>
-              <textarea id="playerList" rows="6" placeholder="i.e: Yamal 10 L&#10;Courtois 1 XL (GK)"></textarea>
-              <span class="error" id="playerError"></span>
-            </div>
-
-            <button type="submit" class="payment-btn">GO TO PAYMENT</button>
-            <p id="formMessage" class="form-message"></p>
+          <div class="field-block">
+            <label for="teamNameInput">Team name</label>
+            <input type="text" id="teamNameInput" placeholder="Enter your team name" class="ts-input">
           </div>
-
         </div>
+
+        <!-- Player Roster Table -->
+        <div class="roster-table-wrap">
+          <table class="roster-table">
+            <thead>
+              <tr>
+                <th>PLAYER NAME</th>
+                <th>SQUAD NUMBER</th>
+                <th>JERSEY SIZE</th>
+                <th class="action-col"></th>
+              </tr>
+            </thead>
+            <tbody id="rosterTableBody">
+              <tr>
+                <td>
+                  <input type="text" class="ts-input player-name-input" placeholder="e.g. YAMAL">
+                </td>
+                <td>
+                  <input type="number" class="ts-input squad-num-input" min="0" max="99" placeholder="10">
+                </td>
+                <td>
+                  <select class="ts-input size-select-input">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L" selected>L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="S (GK)">S (GK)</option>
+                    <option value="M (GK)">M (GK)</option>
+                    <option value="L (GK)">L (GK)</option>
+                    <option value="XL (GK)">XL (GK)</option>
+                    <option value="XXL (GK)">XXL (GK)</option>
+                  </select>
+                </td>
+                <td class="action-col">
+                  <button type="button" class="remove-row-btn" title="Remove row">&times;</button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="text" class="ts-input player-name-input" placeholder="e.g. COURTOIS">
+                </td>
+                <td>
+                  <input type="number" class="ts-input squad-num-input" min="0" max="99" placeholder="1">
+                </td>
+                <td>
+                  <select class="ts-input size-select-input">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                    <option value="S (GK)">S (GK)</option>
+                    <option value="M (GK)">M (GK)</option>
+                    <option value="L (GK)">L (GK)</option>
+                    <option value="XL (GK)" selected>XL (GK)</option>
+                    <option value="XXL (GK)">XXL (GK)</option>
+                  </select>
+                </td>
+                <td class="action-col">
+                  <button type="button" class="remove-row-btn" title="Remove row">&times;</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <button type="button" id="addPlayerRowBtn" class="add-row-link">+ Add Player Row</button>
+
+        <!-- Bottom Row: Separate Player & GK Jersey Design Uploads + GO TO PAYMENT -->
+        <div class="bottom-upload-action-row">
+          <div class="dual-upload-group">
+
+            <!-- Left: Player Jersey Design -->
+            <label for="playerKitUpload" class="design-dropzone">
+              <img id="playerKitPreview" src="" alt="Player Jersey Design Preview">
+              <div id="playerKitPlaceholder" class="dropzone-text">
+                <strong>PLAYER JERSEY DESIGN</strong>
+                <span>+ Upload Player Kit</span>
+              </div>
+            </label>
+            <input type="file" id="playerKitUpload" accept="image/*" style="display: none;">
+
+            <!-- Right: GK Jersey Design -->
+            <label for="gkKitUpload" class="design-dropzone">
+              <img id="gkKitPreview" src="" alt="GK Jersey Design Preview">
+              <div id="gkKitPlaceholder" class="dropzone-text">
+                <strong>GK JERSEY DESIGN</strong>
+                <span>+ Upload GK Kit</span>
+              </div>
+            </label>
+            <input type="file" id="gkKitUpload" accept="image/*" style="display: none;">
+
+          </div>
+
+          <button type="submit" class="payment-btn">GO TO PAYMENT</button>
+        </div>
+
+        <p id="studioFeedback" class="feedback-msg"></p>
       </form>
 
       <!-- Size Chart Section -->
-      <div class="size-chart-section">
-        <h2>SIZE CHART</h2>
-
+      <section class="size-chart-section">
+        <h3>SIZE CHART</h3>
         <div class="size-chart-box">
-          <div class="size-chart-head">
+          <div class="size-chart-header">
             SIZE &bull; CHEST (INCHES) &bull; LENGTH (INCHES) &bull; RECOMMENDED FIT
           </div>
-
           <ul class="size-chart-list">
-            <li>S &ndash; Length: 26" | Chest: 36" .</li>
-            <li>M &ndash; Length: 27" | Chest: 38" .</li>
-            <li>L &ndash; Length: 28" | Chest: 40" .</li>
-            <li>XL &ndash; Length: 29" | Chest: 42" .</li>
-            <li>XXL &ndash; Length: 30" | Chest: 44" .</li>
+            <li><strong>S</strong> &ndash; Length: 26&quot; | Chest: 36&quot; &bull; Slim / Athletic Fit</li>
+            <li><strong>M</strong> &ndash; Length: 27&quot; | Chest: 38&quot; &bull; Standard Regular Fit</li>
+            <li><strong>L</strong> &ndash; Length: 28&quot; | Chest: 40&quot; &bull; Standard Regular Fit</li>
+            <li><strong>XL</strong> &ndash; Length: 29&quot; | Chest: 42&quot; &bull; Relaxed / Goalkeeper Fit</li>
+            <li><strong>XXL</strong> &ndash; Length: 30&quot; | Chest: 44&quot; &bull; Loose / Oversized Fit</li>
           </ul>
         </div>
-      </div>
+      </section>
 
-    </section>
+    </div>
   </main>
 
   <!-- Footer -->
   <div class="copyright">
     &copy; 2026 THREADED STORIES. All rights reserved.
-    <span>Bangladesh &middot; EN</span>
+    <span>Bangladesh &middot; BDT (&#2547;)</span>
   </div>
 
   <script src="script.js"></script>
