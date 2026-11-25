@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Threaded Stories — Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <a href="../Dashboard/index.html">HOME</a>
+  </nav>
+
+  <div class="container">
+    <small id="roleTag">JOIN THE CLUB</small>
+    <h2 id="formTitle">Customer Sign Up</h2>
+    <p id="formSubtitle">Find your colours. Wear your story. Create an account for your next jersey.</p>
+
+    <form id="signupForm" novalidate>
+
+      <!-- 3-Segment Role Switcher (Customer | Delivery Man | Admin) -->
+      <div class="form-group">
+        <label class="who_am_i">I am a</label>
+        <div class="role-segmented" role="tablist">
+          <button type="button" class="role-tab active" data-role="customer">Customer</button>
+          <button type="button" class="role-tab" data-role="delivery">Delivery Man</button>
+          <button type="button" class="role-tab" data-role="admin">Admin</button>
+        </div>
+        <input type="hidden" id="role" name="role" value="customer">
+      </div>
+
+      <!-- Common Personal Details -->
+      <fieldset>
+        <legend>Personal Details</legend>
+
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="fullName" placeholder="Enter your full name">
+          <span class="error" id="fullNameError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="01XXXXXXXXX" maxlength="11">
+          <span class="error" id="phoneError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender">
+            <option value="">Select gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+          <span class="error" id="genderError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="name@example.com">
+          <span class="error" id="emailError"></span>
+        </div>
+      </fieldset>
+
+      <!-- Customer Only -->
+      <fieldset id="customerFields">
+        <legend>Delivery Details</legend>
+
+        <div class="form-group">
+          <label for="customerAddress">Full Delivery Address</label>
+          <textarea id="customerAddress" name="customerAddress" rows="3" placeholder="House, road, area, city &amp; postcode"></textarea>
+          <span class="error" id="customerAddressError"></span>
+        </div>
+      </fieldset>
+
+      <!-- Delivery Man Only -->
+      <div id="deliveryFields" hidden>
+        <fieldset>
+          <legend>Identity &amp; Location</legend>
+
+          <div class="form-group">
+            <label for="presentAddress">Present Address</label>
+            <textarea id="presentAddress" name="presentAddress" rows="3" placeholder="House, road, area, city &amp; postcode"></textarea>
+            <span class="error" id="presentAddressError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="nid">NID Number</label>
+            <input type="text" id="nid" name="nid" placeholder="Enter your NID number">
+            <span class="error" id="nidError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="bloodGroup">Blood Group</label>
+            <select id="bloodGroup" name="bloodGroup">
+              <option value="">Select blood group</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+            </select>
+            <span class="error" id="bloodGroupError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="operatingArea">Operating Area</label>
+            <select id="operatingArea" name="operatingArea">
+              <option value="">Select operating area</option>
+              <option value="Bashundhara & Uttara">Bashundhara &amp; Uttara</option>
+              <option value="Dhanmondi & Mohammadpur">Dhanmondi &amp; Mohammadpur</option>
+              <option value="Mirpur & Pallabi">Mirpur &amp; Pallabi</option>
+              <option value="Gulshan & Banani">Gulshan &amp; Banani</option>
+              <option value="Motijheel & Old Dhaka">Motijheel &amp; Old Dhaka</option>
+            </select>
+            <span class="error" id="operatingAreaError"></span>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Vehicle Details</legend>
+
+          <div class="form-group">
+            <label for="vehicleType">Vehicle Type</label>
+            <select id="vehicleType" name="vehicleType">
+              <option value="Bike">Bike</option>
+              <option value="Cycle">Cycle</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="bikeRegBox">
+            <label for="bikeReg">Bike Registration Number</label>
+            <input type="text" id="bikeReg" name="bikeReg" placeholder="DHK-METRO-LA-24-8891">
+            <span class="error" id="bikeRegError"></span>
+          </div>
+        </fieldset>
+      </div>
+
+      <!-- Common Security -->
+      <fieldset>
+        <legend>Security</legend>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Use at least 8 characters">
+          <button type="button" class="toggle-pass" data-target="password">Show</button>
+          <span class="error" id="passwordError"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password">
+          <button type="button" class="toggle-pass" data-target="confirmPassword">Show</button>
+          <span class="error" id="confirmPasswordError"></span>
+        </div>
+      </fieldset>
+
+      <button type="submit" id="submitBtn">SIGN UP AS CUSTOMER &rarr;</button>
+      <p class="login-link">Already part of the club? <a href="login.html">Log in</a></p>
+
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
