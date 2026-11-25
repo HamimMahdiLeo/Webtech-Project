@@ -1,0 +1,253 @@
+/* Reset & Threaded Stories Design Tokens */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-body: #0b0b0b;
+  --bg-card: #171717;
+  --bg-surface: #191919;
+  --border-dark: #222222;
+  --border-subtle: #333333;
+  --border-input: #444444;
+  --accent-lime: #c6ff00;
+  --accent-red: #ff3333;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --text-muted: #888888;
+}
+
+body {
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* Top Navigation */
+nav {
+  height: 67px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  border-bottom: 1px solid var(--border-subtle);
+  background-color: var(--bg-body);
+}
+
+nav a {
+  padding: 10px 18px;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  border-color: var(--accent-lime);
+  color: var(--accent-lime);
+}
+
+/* Centered Container */
+.container {
+  width: 100%;
+  max-width: 520px;
+  margin: 40px auto 60px auto;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 34px 36px;
+}
+
+#roleTag {
+  display: block;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--accent-lime);
+  margin-bottom: 8px;
+}
+
+#formTitle {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+#formSubtitle {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+/* 3-Segment Horizontal Role Switcher (Customer | Delivery Man | Admin) */
+.role-segmented {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-subtle);
+  padding: 4px;
+  gap: 4px;
+}
+
+.role-tab {
+  padding: 11px 8px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.role-tab:hover {
+  color: var(--text-primary);
+}
+
+.role-tab.active {
+  background-color: var(--accent-lime);
+  color: #000000;
+}
+
+/* Fieldsets & Form Groups */
+fieldset {
+  border: 1px solid var(--border-dark);
+  background-color: var(--bg-surface);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+legend {
+  padding: 0 8px;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color: var(--accent-lime);
+  text-transform: uppercase;
+}
+
+.form-group {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--text-primary);
+  margin-bottom: 7px;
+}
+
+.who_am_i{
+  font-size: 20px;
+  color: #ffffff;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  background-color: var(--bg-body);
+  border: 1px solid var(--border-input);
+  color: var(--text-primary);
+  padding: 11px 12px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--accent-lime);
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Show/Hide Password Button */
+.toggle-pass {
+  position: absolute;
+  right: 10px;
+  top: 29px;
+  background: none;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: bold;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.toggle-pass:hover {
+  border-color: var(--accent-lime);
+  color: var(--accent-lime);
+}
+
+/* Validation Error Text */
+.error {
+  display: block;
+  font-size: 11px;
+  font-weight: bold;
+  color: var(--accent-red);
+  margin-top: 5px;
+}
+
+/* Submit Button & Footer Link */
+#submitBtn {
+  width: 100%;
+  padding: 14px 20px;
+  background-color: var(--accent-lime);
+  border: none;
+  color: #000000;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#submitBtn:hover {
+  opacity: 0.92;
+}
+
+.login-link {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.login-link a {
+  color: var(--accent-lime);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  nav {
+    padding: 0 18px;
+  }
+
+  .container {
+    margin: 24px 14px 40px 14px;
+    padding: 24px 18px;
+  }
+}
